@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net2.0;net3.5-client;net4.0-client;netstandard2.1</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WarningsAsErrors>Nullable</WarningsAsErrors>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>na1307</Authors>
+    <Copyright>Copyright © na1307 2022</Copyright>
+    <Description>한글 조사 처리 라이브러리</Description>
+    <AssemblyVersion>1</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Version>1.0</Version>
+    <PackageProjectUrl>https://github.com/na1307/$(AssemblyName)</PackageProjectUrl>
+    <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net3.5-client' or '$(TargetFramework)' == 'net4.0-client'">
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Remove="System.Linq" />
+    <Using Remove="System.Net.Http" />
+    <Using Remove="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net2.0'">
+    <PackageReference Include="Hafner.Compatibility.ExtensionAttribute" Version="1.0.2" />
+  </ItemGroup>
+</Project>
