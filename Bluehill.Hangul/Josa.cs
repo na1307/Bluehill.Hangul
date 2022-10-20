@@ -84,30 +84,6 @@ public static class Josa {
     public static string EunNeun(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, eun, neun, josaOnly);
 
     /// <summary>
-    /// 입력 문자열에 '이'를 붙이거나 붙이지 않음
-    /// </summary>
-    /// <param name="str">입력 문자열</param>
-    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
-    public static string I(this string str) => I(str, string.Empty);
-
-    /// <summary>
-    /// 입력 문자열에 '이' 또는 <paramref name="defaultJosa"/>를 붙임
-    /// </summary>
-    /// <param name="str">입력 문자열</param>
-    /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
-    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
-    public static string I(this string str, string defaultJosa) => I(str, defaultJosa, false);
-
-    /// <summary>
-    /// 입력 문자열에 '이' 또는 <paramref name="defaultJosa"/>를 붙임
-    /// </summary>
-    /// <param name="str">입력 문자열</param>
-    /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
-    /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
-    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
-    public static string I(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, i, string.Empty, josaOnly);
-
-    /// <summary>
     /// 입력 문자열에 '이' 또는 '가'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
@@ -130,6 +106,30 @@ public static class Josa {
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'이' 또는 '가'를 붙인 문자열</returns>
     public static string IGa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, i, ga, josaOnly);
+
+    /// <summary>
+    /// 입력 문자열에 '이'를 붙이거나 붙이지 않음
+    /// </summary>
+    /// <param name="str">입력 문자열</param>
+    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
+    public static string I(this string str) => I(str, string.Empty);
+
+    /// <summary>
+    /// 입력 문자열에 '이' 또는 <paramref name="defaultJosa"/>를 붙임
+    /// </summary>
+    /// <param name="str">입력 문자열</param>
+    /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
+    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
+    public static string I(this string str, string defaultJosa) => I(str, defaultJosa, false);
+
+    /// <summary>
+    /// 입력 문자열에 '이' 또는 <paramref name="defaultJosa"/>를 붙임
+    /// </summary>
+    /// <param name="str">입력 문자열</param>
+    /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
+    /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
+    /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
+    public static string I(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, i, string.Empty, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '을' 또는 '를'를 붙임
