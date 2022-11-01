@@ -36,9 +36,9 @@ public static class Josa {
         var text = !josaOnly ? str : null;
 
         // 한글 개별 글자가 아니라면
-        if (str[str.Length - 1] is < '가' or > '힣') return text + defaultJosa;
+        if (!str[str.Length - 1].IsHanChar()) return text + defaultJosa;
 
-        return text + (((str[str.Length - 1] - 44032) % 28) == 0 ? noJongseong : jongseong);
+        return text + (str[str.Length - 1].Jongseong() == Hangul.Jongseong.None ? noJongseong : jongseong);
     }
 
     /// <summary>
@@ -54,9 +54,9 @@ public static class Josa {
         var text = !josaOnly ? str : null;
 
         // 한글 개별 글자가 아니라면
-        if (str[str.Length - 1] is < '가' or > '힣') return text + defaultJosa;
+        if (!str[str.Length - 1].IsHanChar()) return text + defaultJosa;
 
-        return text + (((str[str.Length - 1] - 44032) % 28) is 0 or 8 ? rieul : noRieul);
+        return text + (str[str.Length - 1].Jongseong() is Hangul.Jongseong.None or Hangul.Jongseong.Rieul ? rieul : noRieul);
     }
 
     /// <summary>
