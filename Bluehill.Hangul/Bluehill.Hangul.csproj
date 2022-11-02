@@ -12,7 +12,7 @@
     <Description>한글 조사 처리 라이브러리</Description>
     <AssemblyVersion>1</AssemblyVersion>
     <FileVersion>1.1.0</FileVersion>
-    <Version>1.1-beta.1</Version>
+    <Version>1.1-beta.1.1</Version>
     <PackageProjectUrl>https://na1307.github.io/$(AssemblyName)</PackageProjectUrl>
     <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,6 +26,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <ItemGroup>
+    <Using Include="Bluehill.Hangul.HangulConstants" Static="true" />
     <Using Remove="System.Linq" />
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading.Tasks" />

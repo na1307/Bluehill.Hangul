@@ -4,25 +4,6 @@
 /// 한글 조사 처리 확장 모음
 /// </summary>
 public static class Josa {
-    private const string eun_neun = "은(는)";
-    private const string eun = "은";
-    private const string neun = "는";
-    private const string i_ga = "이(가)";
-    private const string i = "이";
-    private const string ga = "가";
-    private const string eul_reul = "을(를)";
-    private const string eul = "을";
-    private const string reul = "를";
-    private const string gwa_wa = "과(와)";
-    private const string gwa = "과";
-    private const string wa = "와";
-    private const string a_ya = "아(야)";
-    private const string a = "아";
-    private const string ya = "야";
-    private const string eu_ro = "(으)로";
-    private const string ro = "로";
-    private const string euro = "으로";
-
     /// <summary>
     /// 입력 문자열의 받침 여부에 따라 문자열을 붙임
     /// </summary>
@@ -64,7 +45,7 @@ public static class Josa {
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'은' 또는 '는'을 붙인 문자열</returns>
-    public static string EunNeun(this string str) => EunNeun(str, eun_neun);
+    public static string EunNeun(this string str) => EunNeun(str, Eun_Neun);
 
     /// <summary>
     /// 입력 문자열에 '은' 또는 '는' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -81,14 +62,14 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'은' 또는 '는'을 붙인 문자열</returns>
-    public static string EunNeun(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, eun, neun, josaOnly);
+    public static string EunNeun(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, Eun, Neun, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '이' 또는 '가'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'이' 또는 '가'를 붙인 문자열</returns>
-    public static string IGa(this string str) => IGa(str, i_ga);
+    public static string IGa(this string str) => IGa(str, I_Ga);
 
     /// <summary>
     /// 입력 문자열에 '이' 또는 '가' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -105,7 +86,7 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'이' 또는 '가'를 붙인 문자열</returns>
-    public static string IGa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, i, ga, josaOnly);
+    public static string IGa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, HangulConstants.I, Ga, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '이'를 붙이거나 붙이지 않음
@@ -129,14 +110,14 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'이'를 붙이거나 붙이지 않은 문자열</returns>
-    public static string I(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, i, string.Empty, josaOnly);
+    public static string I(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, HangulConstants.I, string.Empty, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '을' 또는 '를'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'을' 또는 '를'을 붙인 문자열</returns>
-    public static string EulReul(this string str) => EulReul(str, eul_reul);
+    public static string EulReul(this string str) => EulReul(str, Eul_Reul);
 
     /// <summary>
     /// 입력 문자열에 '을' 또는 '를' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -153,14 +134,14 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'을' 또는 '를'을 붙인 문자열</returns>
-    public static string EulReul(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, eul, reul, josaOnly);
+    public static string EulReul(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, Eul, Reul, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '과' 또는 '와'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'과' 또는 '와'를 붙인 문자열</returns>
-    public static string GwaWa(this string str) => GwaWa(str, gwa_wa);
+    public static string GwaWa(this string str) => GwaWa(str, Gwa_Wa);
 
     /// <summary>
     /// 입력 문자열에 '과' 또는 '와' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -177,14 +158,14 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'과' 또는 '와'를 붙인 문자열</returns>
-    public static string GwaWa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, gwa, wa, josaOnly);
+    public static string GwaWa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, Gwa, Wa, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '아' 또는 '야'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'아' 또는 '야'를 붙인 문자열</returns>
-    public static string AYa(this string str) => AYa(str, a_ya);
+    public static string AYa(this string str) => AYa(str, A_Ya);
 
     /// <summary>
     /// 입력 문자열에 '아' 또는 '야' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -201,14 +182,14 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'아' 또는 '야'를 붙인 문자열</returns>
-    public static string AYa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, a, ya, josaOnly);
+    public static string AYa(this string str, string defaultJosa, bool josaOnly) => Jongseong(str, defaultJosa, A, Ya, josaOnly);
 
     /// <summary>
     /// 입력 문자열에 '로' 또는 '으로'를 붙임
     /// </summary>
     /// <param name="str">입력 문자열</param>
     /// <returns>'로' 또는 '으로'를 붙인 문자열</returns>
-    public static string EuRo(this string str) => EuRo(str, eu_ro);
+    public static string EuRo(this string str) => EuRo(str, Eu_Ro);
 
     /// <summary>
     /// 입력 문자열에 '로' 또는 '으로' 또는 <paramref name="defaultJosa"/>를 붙임
@@ -225,5 +206,5 @@ public static class Josa {
     /// <param name="defaultJosa">마지막 글자가 한글이 아닐 경우 붙일 문자열</param>
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>'로' 또는 '으로'를 붙인 문자열</returns>
-    public static string EuRo(this string str, string defaultJosa, bool josaOnly) => NoJongseongOrRieul(str, defaultJosa, ro, euro, josaOnly);
+    public static string EuRo(this string str, string defaultJosa, bool josaOnly) => NoJongseongOrRieul(str, defaultJosa, Ro, Euro, josaOnly);
 }
