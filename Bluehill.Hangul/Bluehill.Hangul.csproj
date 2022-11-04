@@ -6,9 +6,6 @@
     <Authors>na1307</Authors>
     <Copyright>Copyright © na1307 2022</Copyright>
     <Description>한글 관련 라이브러리</Description>
-    <AssemblyVersion>2</AssemblyVersion>
-    <FileVersion>2.0.0</FileVersion>
-    <Version>2.0-alpha.1</Version>
     <PackageProjectUrl>https://na1307.github.io/$(AssemblyName)</PackageProjectUrl>
     <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

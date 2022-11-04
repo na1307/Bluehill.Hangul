@@ -1,6 +1,4 @@
-﻿using static Bluehill.Hangul.HangulConstants;
-
-namespace Bluehill.Hangul.Tests;
+﻿namespace Bluehill.Hangul.Tests;
 
 public sealed class JosaTest {
     const string sagwa = "사과";
