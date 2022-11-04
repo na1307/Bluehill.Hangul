@@ -97,20 +97,20 @@ public static class HangulConstants {
     /// <summary>
     /// 유니코드에서 한글 완성형의 첫번째 문자(가)를 가리킴
     /// </summary>
-    public const char FirstChar = '가';
+    public const char FirstChar = '\uAC00'; // U+AC00 == 44032 == 가
 
     /// <summary>
     /// 유니코드에서 한글 완성형의 마지막 문자(힣)를 가리킴
     /// </summary>
-    public const char LastChar = '힣';
+    public const char LastChar = '\uD7A3'; // U+D7A3 == 55023 == 힣
 
     /// <summary>
     /// 유니코드에서 한글 자모의 첫번째 문자(ㄱ)를 가리킴
     /// </summary>
-    public const char FirstJamo = 'ㄱ';
+    public const char FirstJamo = '\u3131'; // U+3131 == 12593 == ㄱ
 
     /// <summary>
     /// 유니코드에서 한글 자모의 마지막 문자(ㅣ)를 가리킴
     /// </summary>
-    public const char LastJamo = 'ㅣ';
+    public const char LastJamo = '\u3163'; // U+3163 == 12643 == ㅣ
 }

@@ -9,10 +9,10 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>na1307</Authors>
     <Copyright>Copyright © na1307 2022</Copyright>
-    <Description>한글 조사 처리 라이브러리</Description>
+    <Description>한글 관련 라이브러리</Description>
     <AssemblyVersion>1</AssemblyVersion>
     <FileVersion>1.1.0</FileVersion>
-    <Version>1.1-beta.2</Version>
+    <Version>1.1</Version>
     <PackageProjectUrl>https://na1307.github.io/$(AssemblyName)</PackageProjectUrl>
     <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -30,6 +30,11 @@
     <Using Remove="System.Linq" />
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.CLSCompliantAttribute">
+      <_Parameter1>true</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
