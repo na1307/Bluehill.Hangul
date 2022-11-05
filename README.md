@@ -1,17 +1,39 @@
 ![GitHub](https://img.shields.io/github/license/na1307/Bluehill.Hangul?style=flat-square)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=na1307_Bluehill.Hangul&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=na1307_Bluehill.Hangul)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=na1307_Bluehill.Hangul&metric=coverage)](https://sonarcloud.io/summary/new_code?id=na1307_Bluehill.Hangul)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/na1307/Bluehill.Hangul/.NET?style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues-raw/na1307/Bluehill.Hangul?style=flat-square)](https://github.com/na1307/Bluehill.Hangul/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/na1307/Bluehill.Hangul?style=flat-square)](https://github.com/na1307/Bluehill.Hangul/pulls)
 [![Nuget](https://img.shields.io/nuget/v/Bluehill.Hangul?logo=nuget&style=flat-square)](https://www.nuget.org/packages/Bluehill.Hangul)
 [![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Bluehill.Hangul?color=616&label=preview&logo=nuget&style=flat-square)](https://www.nuget.org/packages/Bluehill.Hangul)
 [![Nuget](https://img.shields.io/nuget/dt/Bluehill.Hangul?style=flat-square)](https://www.nuget.org/packages/Bluehill.Hangul)
 
+여러가지 한글 관련 기능들을 제공합니다.
+
+## 사용
+<code>Bluehill.Hangul</code> 네임스페이스를 가져와 사용할 수 있습니다.
+
+```csharp
+using Bluehill.Hangul;
+```
+<code>global using</code>을 사용하면 각 파일에 추가할 필요 없이 프로젝트의 모든 파일에서 사용할 수 있습니다.
+
+```csharp
+global using Bluehill.Hangul;
+```
+
+만약 특정 기능만 필요하다면 <code>using static</code>을 사용할 수도 있습니다.
+
+```csharp
+using static Bluehill.Hangul.Josa;
+```
+
 ## 한글 조사 처리
 을/를, 이/가 등의 한글 조사 처리를 확장 메서드로 간단하게 할 수 있습니다.
 
 ![Example](test.png)
 
-### 사용
-<code>Bluehill.Hangul</code> 네임스페이스를 가져와 사용할 수 있습니다. 다음의 9가지 메서드를 제공합니다.
+다음의 9가지 메서드를 제공합니다.
 
 1. EunNeun (은/는)
 1. IGa (이/가)
@@ -54,6 +76,17 @@ Console.WriteLine("넌".Jongseong("내꺼야", "내꺼야", "저리가", true));
 ```
 
 사실 일반적인 경우라면 쓸 일이 없을 것 같습니다.
+
+## 문자 처리
+한글 문자에서 초성 / 중성 / 종성 열거형을 얻고, 열거형을 한글 낱자로 변환할 수 있습니다.
+
+```csharp
+const char gal = '갈';
+Console.WriteLine(gal.Choseong()); // Giyeok
+Console.WriteLine(gal.Jungseong()); // A
+Console.WriteLine(gal.Jongseong()); // Rieul
+Console.WriteLine(gal.Choseong().ToChar()); // ㄱ
+```
 
 ## Changelog
 [Changelog](CHANGELOG.md)
