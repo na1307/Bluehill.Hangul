@@ -1,0 +1,11 @@
+[*.cs]
+
+# 식 본문 멤버
+csharp_style_expression_bodied_accessors = false
+csharp_style_expression_bodied_constructors = false
+csharp_style_expression_bodied_indexers = false
+csharp_style_expression_bodied_lambdas = false
+csharp_style_expression_bodied_local_functions = false
+csharp_style_expression_bodied_methods = false
+csharp_style_expression_bodied_operators = false
+csharp_style_expression_bodied_properties = false
