@@ -36,7 +36,7 @@ public sealed class CharExtensionsTest {
     [Fact]
     public void JongseongTest() {
         Assert.Equal(Jongseong.Nieun, han.Jongseong());
-        Assert.Throws<ArgumentException>(() => giyeok.Jungseong());
-        Assert.Throws<ArgumentException>(() => s.Jungseong());
+        Assert.Throws<ArgumentException>(() => giyeok.Jongseong());
+        Assert.Throws<ArgumentException>(() => s.Jongseong());
     }
 }
