@@ -31,6 +31,9 @@
   <ItemGroup>
     <AdditionalFiles Include="..\.sonarlint\na1307_bluehill.hangul\CSharp\SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net3.5' or '$(TargetFramework)' == 'net4.0-client'">
+    <PackageReference Include="IndexRange" PrivateAssets="all" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
       <Pack>True</Pack>
