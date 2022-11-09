@@ -16,11 +16,10 @@
     <AnalysisLevel>latest</AnalysisLevel>
     <CodeAnalysisRuleSet>..\.sonarlint\na1307_bluehill.hangulcsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net3.5-client' or '$(TargetFramework)' == 'net4.0-client'">
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-  </PropertyGroup>
   <ItemGroup>
+    <Using Include="System.Diagnostics.CodeAnalysis" />
     <Using Include="Bluehill.Hangul.HangulConstants" Static="true" />
+    <Using Include="Bluehill.Hangul.Internal" Static="true" />
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading.Tasks" />
   </ItemGroup>

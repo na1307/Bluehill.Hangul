@@ -1,6 +1,9 @@
 # 상위 디렉터리에서 .editorconfig 설정을 상속하려면 아래 행을 제거하세요.
 root = true
 
+[*.{cs,vb}]
+dotnet_diagnostic.CS0436.severity=silent
+
 # C# 파일
 [*.cs]
 
