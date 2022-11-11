@@ -62,7 +62,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     /// <param name="jungseong">중성 값</param>
     /// <param name="jongseong">종성 값</param>
     [SetsRequiredMembers]
-    public HangulChar(Choseong choseong, Jungseong jungseong, Jongseong jongseong) : this((byte)choseong, (byte)jungseong, (byte)jongseong) { }
+    public HangulChar(Choseong choseong, Jungseong jungseong, Jongseong jongseong) => WrappedChar = getChar((byte)choseong, (byte)jungseong, (byte)jongseong);
 
     /// <summary>
     /// 지정한 초성, 중성, 종성 값을 사용하여 새 <see cref="HangulChar"/> 인스턴스를 만듦
@@ -77,7 +77,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
         if (jungseong > 20) throw new ArgumentOutOfRangeException(nameof(jungseong), jungseong, "중성 값은 20 이하여야 합니다.");
         if (jongseong > 27) throw new ArgumentOutOfRangeException(nameof(jongseong), jongseong, "종성 값은 27 이하여야 합니다.");
 
-        WrappedChar = (char)(FirstChar + (((choseong * 21) + jungseong) * 28) + jongseong);
+        WrappedChar = getChar(choseong, jungseong, jongseong);
     }
 
     /// <summary>
@@ -93,7 +93,9 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
         if (!JamoLookup[1].Contains(jungseong)) throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
         if (!JamoLookup[2].Contains(jongseong)) throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
 
-        this = new((byte)Array.IndexOf(JamoLookup[0], choseong), (byte)Array.IndexOf(JamoLookup[1], jungseong), (byte)Array.IndexOf(JamoLookup[2], jongseong));
+        WrappedChar = getChar(getByte(ChoseongIndex, choseong), getByte(JungseongIndex, jungseong), getByte(JongseongIndex, jongseong));
+
+        static byte getByte(int index, char value) => (byte)Array.IndexOf(JamoLookup[index], value);
     }
 
     /// <summary>
@@ -169,11 +171,11 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     public override bool Equals(object? obj) => obj is HangulChar @char && Equals(@char);
 
     /// <inheritdoc/>
-    public bool Equals(HangulChar other) => WrappedChar == other.WrappedChar;
+    public bool Equals(HangulChar other) => WrappedChar.Equals(other.WrappedChar);
 
     /// <inheritdoc/>
     [ExcludeFromCodeCoverage]
-    public override int GetHashCode() => 1173943597 + WrappedChar.GetHashCode();
+    public override int GetHashCode() => WrappedChar.GetHashCode();
 
     /// <inheritdoc/>
     public int CompareTo(HangulChar other) => WrappedChar.CompareTo(other.WrappedChar);
@@ -189,4 +191,6 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
         jungseong = Jungseong;
         jongseong = Jongseong;
     }
+
+    private static char getChar(byte choseong, byte jungseong, byte jongseong) => (char)(FirstChar + (((choseong * 21) + jungseong) * 28) + jongseong);
 }

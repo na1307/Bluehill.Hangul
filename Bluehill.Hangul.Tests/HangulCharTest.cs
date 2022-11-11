@@ -17,6 +17,7 @@ public sealed class HangulCharTest {
 
     [Fact]
     public void ConstructorTest3() {
+        _ = new HangulChar(1, 2, 3);
         Assert.Throws<ArgumentOutOfRangeException>("choseong", () => new HangulChar(19, 0, 0));
         Assert.Throws<ArgumentOutOfRangeException>("jungseong", () => new HangulChar(0, 21, 0));
         Assert.Throws<ArgumentOutOfRangeException>("jongseong", () => new HangulChar(0, 0, 28));
