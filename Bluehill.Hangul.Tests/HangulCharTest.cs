@@ -50,6 +50,18 @@ public sealed class HangulCharTest {
     }
 
     [Fact]
+    public void ExplicitOperatorTest() {
+        _ = (HangulChar)'가';
+        Assert.Throws<ArgumentException>("c", () => (HangulChar)'s');
+    }
+
+    [Fact]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "Not Needed")]
+    public void ImplicitOperatorTest() {
+        _ = (char)gaChar;
+    }
+
+    [Fact]
     public void EqualityOperatorTest() {
         Assert.True(gaChar == HangulChar.MinValue);
         Assert.False(gaChar == HangulChar.MaxValue);
@@ -103,11 +115,30 @@ public sealed class HangulCharTest {
     }
 
     [Fact]
-    public void DeconstructTest() {
-        var (choseong, jungseong, jongseong) = HangulChar.MinValue;
+    public void EqualsTest1() {
+        Assert.True(gaChar.Equals(HangulChar.MinValue));
+        Assert.False(gaChar.Equals(HangulChar.MaxValue));
+    }
 
-        Assert.Equal(Choseong.Giyeok, choseong);
-        Assert.Equal(Jungseong.A, jungseong);
-        Assert.Equal(Jongseong.None, jongseong);
+    [Fact]
+    public void EqualsTest2() {
+        Assert.True(gaChar.Equals((object)HangulChar.MinValue));
+        Assert.False(gaChar.Equals((object)HangulChar.MaxValue));
+        Assert.False(gaChar.Equals(HangulChar.MinValue.WrappedChar));
+    }
+
+    [Fact]
+    public void GetHashCodeTest() {
+        Assert.Equal(HangulChar.MinValue.GetHashCode(), gaChar.GetHashCode());
+        Assert.Equal(gaChar.WrappedChar.GetHashCode(), gaChar.GetHashCode());
+    }
+
+    [Fact]
+    public void DeconstructTest() {
+        var (choseong, jungseong, jongseong) = hitChar;
+
+        Assert.Equal(Choseong.Hieut, choseong);
+        Assert.Equal(Jungseong.I, jungseong);
+        Assert.Equal(Jongseong.Hieut, jongseong);
     }
 }

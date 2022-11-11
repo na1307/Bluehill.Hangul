@@ -109,7 +109,6 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     /// 이 <see cref="HangulChar"/>를 <see cref="char"/>로 변환
     /// </summary>
     /// <param name="hangulChar">한글 문자</param>
-    [ExcludeFromCodeCoverage]
     public static implicit operator char(HangulChar hangulChar) => hangulChar.WrappedChar;
 
     /// <summary>
@@ -167,14 +166,12 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     public override string ToString() => WrappedChar.ToString();
 
     /// <inheritdoc/>
-    [ExcludeFromCodeCoverage]
     public override bool Equals(object? obj) => obj is HangulChar @char && Equals(@char);
 
     /// <inheritdoc/>
     public bool Equals(HangulChar other) => WrappedChar.Equals(other.WrappedChar);
 
     /// <inheritdoc/>
-    [ExcludeFromCodeCoverage]
     public override int GetHashCode() => WrappedChar.GetHashCode();
 
     /// <inheritdoc/>
