@@ -4,9 +4,11 @@
     <Nullable>enable</Nullable>
     <WarningsAsErrors>Nullable</WarningsAsErrors>
     <LangVersion>latest</LangVersion>
+    <Company>Bluehill</Company>
+    <Copyright>Copyright © Bluehill 2022</Copyright>
     <AssemblyVersion>2</AssemblyVersion>
     <FileVersion>2.0.0</FileVersion>
-    <Version>2.0-alpha.4</Version>
+    <Version>2.0-alpha.5</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'net3.5-client' or '$(TargetFramework)' == 'net4.0-client'">
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
