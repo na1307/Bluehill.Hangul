@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="'$(GeneratePackageOnBuild)' == 'true'">
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+</Project>
