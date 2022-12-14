@@ -89,13 +89,13 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     /// <exception cref="ArgumentException"><paramref name="choseong"/>이 초성 낱자가 아님 또는 <paramref name="jungseong"/>이 중성 낱자가 아님 또는 <paramref name="jongseong"/>이 종성 낱자가 아님</exception>
     [SetsRequiredMembers]
     public HangulChar(char choseong, char jungseong, char jongseong) {
-        if (!JamoLookup[0].Contains(choseong)) throw new ArgumentException("초성 낱자가 아닙니다.", nameof(choseong));
-        if (!JamoLookup[1].Contains(jungseong)) throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
-        if (!JamoLookup[2].Contains(jongseong)) throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
+        if (!Choseongs.Contains(choseong)) throw new ArgumentException("초성 낱자가 아닙니다.", nameof(choseong));
+        if (!Jungseongs.Contains(jungseong)) throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
+        if (!Jongseongs.Contains(jongseong)) throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
 
-        WrappedChar = getChar(getByte(ChoseongIndex, choseong), getByte(JungseongIndex, jungseong), getByte(JongseongIndex, jongseong));
+        WrappedChar = getChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
 
-        static byte getByte(int index, char value) => (byte)Array.IndexOf(JamoLookup[index], value);
+        static byte getByte(char[] array, char value) => (byte)Array.IndexOf(array, value);
     }
 
     /// <summary>
