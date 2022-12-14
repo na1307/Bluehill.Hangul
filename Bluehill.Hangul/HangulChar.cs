@@ -8,10 +8,19 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     , System.Numerics.IComparisonOperators<HangulChar, HangulChar, bool>, System.Numerics.IMinMaxValue<HangulChar>
 #endif
     {
+    private readonly char _WrappedChar;
+
     /// <summary>
     /// 실제 <see cref="char"/>
     /// </summary>
-    public required char WrappedChar { get; init; }
+    public required char WrappedChar {
+        get => _WrappedChar;
+        init {
+            if (!value.IsHangul()) throw new ArgumentException("문자가 한글 문자가 아닙니다.", nameof(value));
+
+            _WrappedChar = value;
+        }
+    }
 
     /// <summary>
     /// <see cref="HangulChar"/>의 최소값을 나타냄
@@ -52,7 +61,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     public HangulChar(char c) {
         if (!c.IsHangul()) throw new ArgumentException("문자가 한글 문자가 아닙니다.", nameof(c));
 
-        WrappedChar = c;
+        _WrappedChar = c;
     }
 
     /// <summary>
@@ -62,7 +71,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
     /// <param name="jungseong">중성 값</param>
     /// <param name="jongseong">종성 값</param>
     [SetsRequiredMembers]
-    public HangulChar(Choseong choseong, Jungseong jungseong, Jongseong jongseong) => WrappedChar = getChar((byte)choseong, (byte)jungseong, (byte)jongseong);
+    public HangulChar(Choseong choseong, Jungseong jungseong, Jongseong jongseong) => _WrappedChar = getChar((byte)choseong, (byte)jungseong, (byte)jongseong);
 
     /// <summary>
     /// 지정한 초성, 중성, 종성 값을 사용하여 새 <see cref="HangulChar"/> 인스턴스를 만듦
@@ -77,7 +86,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
         if (jungseong > 20) throw new ArgumentOutOfRangeException(nameof(jungseong), jungseong, "중성 값은 20 이하여야 합니다.");
         if (jongseong > 27) throw new ArgumentOutOfRangeException(nameof(jongseong), jongseong, "종성 값은 27 이하여야 합니다.");
 
-        WrappedChar = getChar(choseong, jungseong, jongseong);
+        _WrappedChar = getChar(choseong, jungseong, jongseong);
     }
 
     /// <summary>
@@ -93,7 +102,7 @@ public readonly struct HangulChar : IEquatable<HangulChar>, IComparable<HangulCh
         if (!Jungseongs.Contains(jungseong)) throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
         if (!Jongseongs.Contains(jongseong)) throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
 
-        WrappedChar = getChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
+        _WrappedChar = getChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
 
         static byte getByte(char[] array, char value) => (byte)Array.IndexOf(array, value);
     }
