@@ -4,11 +4,22 @@
     <Nullable>enable</Nullable>
     <WarningsAsErrors>Nullable</WarningsAsErrors>
     <LangVersion>latest</LangVersion>
+    <Authors>na1307</Authors>
     <Company>Bluehill</Company>
+    <Product>Bluehill.Hangul</Product>
     <Copyright>Copyright © Bluehill 2022</Copyright>
+    <PackageProjectUrl>https://na1307.github.io/Bluehill.Hangul</PackageProjectUrl>
+    <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>https://na1307.github.io/Bluehill.Hangul/CHANGELOG.html</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/na1307/Bluehill.Hangul</RepositoryUrl>
     <AssemblyVersion>2</AssemblyVersion>
     <FileVersion>2.0.0</FileVersion>
-    <Version>2.0-beta.1</Version>
+    <Version>2.0-beta.2</Version>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'net3.5-client' or '$(TargetFramework)' == 'net4.0-client'">
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>

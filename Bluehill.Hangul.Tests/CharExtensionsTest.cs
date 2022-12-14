@@ -6,17 +6,17 @@ public sealed class CharExtensionsTest {
     const char s = 's';
 
     [Fact]
-    public void IsHangulTest() {
-        Assert.True(han.IsHangul());
-        Assert.False(giyeok.IsHangul());
-        Assert.False(s.IsHangul());
+    public void IsHangulSyllableTest() {
+        Assert.True(han.IsHangulSyllable());
+        Assert.False(giyeok.IsHangulSyllable());
+        Assert.False(s.IsHangulSyllable());
     }
 
     [Fact]
-    public void IsJamoTest() {
-        Assert.False(han.IsJamo());
-        Assert.True(giyeok.IsJamo());
-        Assert.False(s.IsJamo());
+    public void IsHangulJamoTest() {
+        Assert.False(han.IsHangulJamo());
+        Assert.True(giyeok.IsHangulJamo());
+        Assert.False(s.IsHangulJamo());
     }
 
     [Fact]

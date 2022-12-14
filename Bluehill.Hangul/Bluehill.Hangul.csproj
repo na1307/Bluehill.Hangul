@@ -3,18 +3,9 @@
     <TargetFrameworks>net3.5;net4.0-client;netstandard2.1;net7.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>na1307</Authors>
     <Description>한글 관련 라이브러리</Description>
-    <PackageProjectUrl>https://na1307.github.io/$(AssemblyName)</PackageProjectUrl>
-    <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/na1307/$(AssemblyName)</RepositoryUrl>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <AnalysisLevel>latest</AnalysisLevel>
     <CodeAnalysisRuleSet>..\.sonarlint\na1307_bluehill.hangulcsharp.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
