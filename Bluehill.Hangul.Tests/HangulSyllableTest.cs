@@ -6,6 +6,7 @@ public sealed class HangulSyllableTest {
 
     [Fact]
     public void ConstructorTest1() {
+        _ = new HangulSyllable() { WrappedChar = '갈' };
         Assert.Throws<ArgumentException>("value", () => new HangulSyllable() { WrappedChar = 'e' });
     }
 
