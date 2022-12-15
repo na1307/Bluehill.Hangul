@@ -6,17 +6,22 @@ public sealed class HangulSyllableTest {
 
     [Fact]
     public void ConstructorTest1() {
+        Assert.Throws<ArgumentException>("value", () => new HangulSyllable() { WrappedChar = 'e' });
+    }
+
+    [Fact]
+    public void ConstructorTest2() {
         Assert.Throws<ArgumentException>("c", () => new HangulSyllable('e'));
     }
 
     [Fact]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "Not Needed")]
-    public void ConstructorTest2() {
+    public void ConstructorTest3() {
         _ = new HangulSyllable(Choseong.Giyeok, Jungseong.A, Jongseong.None);
     }
 
     [Fact]
-    public void ConstructorTest3() {
+    public void ConstructorTest4() {
         _ = new HangulSyllable(1, 2, 3);
         Assert.Throws<ArgumentOutOfRangeException>("choseong", () => new HangulSyllable(19, 0, 0));
         Assert.Throws<ArgumentOutOfRangeException>("jungseong", () => new HangulSyllable(0, 21, 0));
@@ -24,7 +29,7 @@ public sealed class HangulSyllableTest {
     }
 
     [Fact]
-    public void ConstructorTest4() {
+    public void ConstructorTest5() {
         _ = new HangulSyllable('ㄱ', 'ㅏ', 'ㅎ');
         Assert.Throws<ArgumentException>("choseong", () => new HangulSyllable('ㅐ', 'ㅏ', 'ㅎ'));
         Assert.Throws<ArgumentException>("jungseong", () => new HangulSyllable('ㄱ', 'ㄴ', 'ㅎ'));

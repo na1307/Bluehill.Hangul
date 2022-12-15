@@ -14,9 +14,6 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>https://na1307.github.io/Bluehill.Hangul/CHANGELOG.html</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/na1307/Bluehill.Hangul</RepositoryUrl>
-    <AssemblyVersion>2</AssemblyVersion>
-    <FileVersion>2.0.0</FileVersion>
-    <Version>2.0-beta.2</Version>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
     <AnalysisLevel>latest</AnalysisLevel>

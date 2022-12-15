@@ -36,12 +36,12 @@ public sealed class JosaTest {
         const string e6 = Neun;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -63,12 +63,12 @@ public sealed class JosaTest {
         const string e6 = Ga;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -90,12 +90,12 @@ public sealed class JosaTest {
         const string e6 = "";
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -117,12 +117,12 @@ public sealed class JosaTest {
         const string e6 = Reul;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -144,12 +144,12 @@ public sealed class JosaTest {
         const string e6 = Wa;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -171,12 +171,12 @@ public sealed class JosaTest {
         const string e6 = Ya;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 
     [Fact]
@@ -198,11 +198,11 @@ public sealed class JosaTest {
         const string e6 = Ro;
 
         // Asserts
-        Assert.Equal(expected: e1, actual: r1);
-        Assert.Equal(expected: e2, actual: r2);
-        Assert.Equal(expected: e3, actual: r3);
-        Assert.Equal(expected: e4, actual: r4);
-        Assert.Equal(expected: e5, actual: r5);
-        Assert.Equal(expected: e6, actual: r6);
+        Assert.Equal(e1, r1);
+        Assert.Equal(e2, r2);
+        Assert.Equal(e3, r3);
+        Assert.Equal(e4, r4);
+        Assert.Equal(e5, r5);
+        Assert.Equal(e6, r6);
     }
 }

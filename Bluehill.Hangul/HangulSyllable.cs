@@ -16,7 +16,7 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     public required char WrappedChar {
         get => _WrappedChar;
         init {
-            if (!value.IsHangulSyllable()) throw new ArgumentException("문자가 한글 음절가 아닙니다.", nameof(value));
+            if (!value.IsHangulSyllable()) throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
 
             _WrappedChar = value;
         }

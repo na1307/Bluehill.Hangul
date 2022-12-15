@@ -3,12 +3,22 @@
 public sealed class CharExtensionsTest {
     const char han = '한';
     const char giyeok = 'ㄱ';
+    const char ae = 'ㅐ';
     const char s = 's';
+
+    [Fact]
+    public void IsHangulTest() {
+        Assert.True(han.IsHangul());
+        Assert.True(giyeok.IsHangul());
+        Assert.True(ae.IsHangul());
+        Assert.False(s.IsHangul());
+    }
 
     [Fact]
     public void IsHangulSyllableTest() {
         Assert.True(han.IsHangulSyllable());
         Assert.False(giyeok.IsHangulSyllable());
+        Assert.False(ae.IsHangulSyllable());
         Assert.False(s.IsHangulSyllable());
     }
 
@@ -16,7 +26,24 @@ public sealed class CharExtensionsTest {
     public void IsHangulJamoTest() {
         Assert.False(han.IsHangulJamo());
         Assert.True(giyeok.IsHangulJamo());
+        Assert.True(ae.IsHangulJamo());
         Assert.False(s.IsHangulJamo());
+    }
+
+    [Fact]
+    public void IsHangulConsonantTest() {
+        Assert.False(han.IsHangulConsonant());
+        Assert.True(giyeok.IsHangulConsonant());
+        Assert.False(ae.IsHangulConsonant());
+        Assert.False(s.IsHangulConsonant());
+    }
+
+    [Fact]
+    public void IsHangulVowelTest() {
+        Assert.False(han.IsHangulVowel());
+        Assert.False(giyeok.IsHangulVowel());
+        Assert.True(ae.IsHangulVowel());
+        Assert.False(s.IsHangulVowel());
     }
 
     [Fact]
