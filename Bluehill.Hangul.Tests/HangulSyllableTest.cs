@@ -6,8 +6,8 @@ public sealed class HangulSyllableTest {
 
     [Fact]
     public void ConstructorTest1() {
-        _ = new HangulSyllable() { WrappedChar = '갈' };
-        Assert.Throws<ArgumentException>("value", () => new HangulSyllable() { WrappedChar = 'e' });
+        _ = new HangulSyllable() { Value = '갈' };
+        Assert.Throws<ArgumentException>("value", () => new HangulSyllable() { Value = 'e' });
     }
 
     [Fact]
@@ -130,13 +130,13 @@ public sealed class HangulSyllableTest {
     public void EqualsTest2() {
         Assert.True(gaChar.Equals((object)HangulSyllable.MinValue));
         Assert.False(gaChar.Equals((object)HangulSyllable.MaxValue));
-        Assert.False(gaChar.Equals(HangulSyllable.MinValue.WrappedChar));
+        Assert.False(gaChar.Equals(HangulSyllable.MinValue.Value));
     }
 
     [Fact]
     public void GetHashCodeTest() {
         Assert.Equal(HangulSyllable.MinValue.GetHashCode(), gaChar.GetHashCode());
-        Assert.Equal(gaChar.WrappedChar.GetHashCode(), gaChar.GetHashCode());
+        Assert.Equal(gaChar.Value.GetHashCode(), gaChar.GetHashCode());
     }
 
     [Fact]
