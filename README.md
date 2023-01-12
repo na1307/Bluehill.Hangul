@@ -1,7 +1,7 @@
 ![GitHub](https://img.shields.io/github/license/na1307/Bluehill.Hangul?style=flat-square)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=na1307_Bluehill.Hangul&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=na1307_Bluehill.Hangul)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=na1307_Bluehill.Hangul&metric=coverage)](https://sonarcloud.io/summary/new_code?id=na1307_Bluehill.Hangul)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/na1307/Bluehill.Hangul/.NET?style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/na1307/Bluehill.Hangul/dotnet.yml?style=flat-square)
 [![GitHub issues](https://img.shields.io/github/issues-raw/na1307/Bluehill.Hangul?style=flat-square)](https://github.com/na1307/Bluehill.Hangul/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/na1307/Bluehill.Hangul?style=flat-square)](https://github.com/na1307/Bluehill.Hangul/pulls)
 [![Nuget](https://img.shields.io/nuget/v/Bluehill.Hangul?logo=nuget&style=flat-square)](https://www.nuget.org/packages/Bluehill.Hangul)
@@ -82,8 +82,11 @@ const char gal = '갈';
 Console.WriteLine(gal.Choseong()); // Giyeok
 Console.WriteLine(gal.Jungseong()); // A
 Console.WriteLine(gal.Jongseong()); // Rieul
-Console.WriteLine(gal.Choseong().ToChar()); // ㄱ
+Console.WriteLine(gal.Choseong().ToJamo()); // ㄱ
 ```
+
+## HangulSyllable 및 기타
+TODO
 
 ## Changelog
 [Changelog](CHANGELOG.md)
