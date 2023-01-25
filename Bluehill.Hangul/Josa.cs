@@ -16,7 +16,7 @@ public static class Josa {
     public static string Jongseong(this string str, string defaultJosa, string jongseong, string noJongseong, bool josaOnly) {
         var text = !josaOnly ? str : null;
 
-        // 한글 개별 글자가 아니라면
+        // 한글 음절이 아니라면
         if (!str[^1].IsHangulSyllable()) return text + defaultJosa;
 
         return text + (str[^1].Jongseong() == Hangul.Jongseong.None ? noJongseong : jongseong);
@@ -34,7 +34,7 @@ public static class Josa {
     public static string NoJongseongOrRieul(this string str, string defaultJosa, string rieul, string noRieul, bool josaOnly) {
         var text = !josaOnly ? str : null;
 
-        // 한글 개별 글자가 아니라면
+        // 한글 음절이 아니라면
         if (!str[^1].IsHangulSyllable()) return text + defaultJosa;
 
         return text + (str[^1].Jongseong() is Hangul.Jongseong.None or Hangul.Jongseong.Rieul ? rieul : noRieul);
