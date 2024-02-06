@@ -3,7 +3,6 @@
 /// <summary>
 /// 한글 음절(가 ~ 힣)를 나타냄
 /// </summary>
-[Serializable]
 public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<HangulSyllable>
 #if NET7_0_OR_GREATER
     , System.Numerics.IComparisonOperators<HangulSyllable, HangulSyllable, bool>, System.Numerics.IMinMaxValue<HangulSyllable>
