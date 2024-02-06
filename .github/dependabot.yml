@@ -13,7 +13,6 @@ updates:
       timezone: "Asia/Seoul"
     assignees:
       - "na1307"
-    milestone: 1
     pull-request-branch-name:
       separator: _
     reviewers:
