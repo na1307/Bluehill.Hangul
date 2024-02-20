@@ -17,3 +17,7 @@ updates:
       separator: _
     reviewers:
       - "na1307"
+    groups:
+      default:
+        patterns:
+          - "*"
