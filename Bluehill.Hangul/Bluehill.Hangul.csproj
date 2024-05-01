@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net3.5;net4.0-client;netstandard2.1;net7.0</TargetFrameworks>
+    <TargetFrameworks>net35;net40;netstandard2.1;net7.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>한글 관련 라이브러리</Description>

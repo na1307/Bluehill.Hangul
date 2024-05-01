@@ -15,30 +15,6 @@ jobs:
     runs-on: windows-latest
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
-    steps:
-    - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
-    - name: Cache NuGet
-      uses: actions/cache@v4
-      with:
-        path: ${{ github.workspace }}\.nuget\packages
-        key: ${{ runner.os }}-nuget-${{ hashFiles('Directory.Packages.props') }} #hash of project files
-        restore-keys: ${{ runner.os }}-nuget-
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-  publish:
-    name: Build and Pack (Release)
-    needs: build
-    runs-on: windows-latest
-    env:
-      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
       OUTPUT_PATH: output
     steps:
     - uses: actions/checkout@v4
@@ -54,9 +30,15 @@ jobs:
         restore-keys: ${{ runner.os }}-nuget-
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+    - name: Build (Debug)
+      run: dotnet build --no-restore
+    - name: Test (Debug)
+      run: dotnet test --no-build --verbosity normal
+    - name: Clean (Debug)
+      run: dotnet clean
+    - name: Build (Release)
       run: dotnet build --configuration Release --no-restore
-    - name: Pack
+    - name: Pack (Release)
       run: dotnet pack --configuration Release --no-build --output ${{ env.OUTPUT_PATH }}
     - name: Upload artifact
       uses: actions/upload-artifact@v4
