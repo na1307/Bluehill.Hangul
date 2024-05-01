@@ -24,7 +24,7 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IndexRange" PrivateAssets="all"  Condition="'$(TargetFramework)' == 'net3.5' or '$(TargetFramework)' == 'net4.0-client'" />
+    <PackageReference Include="IndexRange" PrivateAssets="all"  Condition="'$(TargetFramework)' == 'net35' or '$(TargetFramework)' == 'net40'" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
