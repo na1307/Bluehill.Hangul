@@ -1,7 +1,7 @@
-name: 버그 보고 (한국어)
-description: 한국어로 버그 보고서를 제출하려면 사용하세요.
+name: 기능 제안 (한국어)
+description: 이런 기능이 있었으면 좋겠다 싶으신가요?
 assignees: na1307
-labels: bug
+labels: enhancement
 body:
   - type: input
     id: version
@@ -11,21 +11,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: replicate
+    id: content
     attributes:
-      label: 문제를 재현하는 단계
-    validations:
-      required: true
-  - type: textarea
-    id: happens
-    attributes:
-      label: 무엇이 발생하나요?
-    validations:
-      required: true
-  - type: textarea
-    id: instead
-    attributes:
-      label: 대신 무엇이 발생해야 했나요?
+      label: 어떤 기능이 있었으면 좋겠나요?
     validations:
       required: true
   - type: textarea

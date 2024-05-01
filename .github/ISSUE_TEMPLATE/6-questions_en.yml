@@ -1,0 +1,25 @@
+name: Questions (English)
+description: Do you have questions?
+assignees: na1307
+labels: question
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Package version causing issue
+    validations:
+      required: false
+  - type: textarea
+    id: content
+    attributes:
+      label: Questions to ask
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: OS, .NET Runtime version, etc...
+    validations:
+      required: false

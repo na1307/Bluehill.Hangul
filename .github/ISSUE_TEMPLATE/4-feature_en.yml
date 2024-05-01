@@ -1,0 +1,25 @@
+name: Feature suggestions (English)
+description: Please use this template for feature suggestions.
+assignees: na1307
+labels: enhancement
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Package version causing issue
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: What features would you like to have?
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: OS, .NET Runtime version, etc...
+    validations:
+      required: false

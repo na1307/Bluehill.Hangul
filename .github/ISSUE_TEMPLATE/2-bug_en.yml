@@ -1,37 +1,37 @@
-name: 버그 보고 (한국어)
-description: 한국어로 버그 보고서를 제출하려면 사용하세요.
+name: Report a bug (English)
+description: Don't know Korean? Please use this template to report a bug.
 assignees: na1307
 labels: bug
 body:
   - type: input
     id: version
     attributes:
-      label: 패키지 버전
-      description: 문제가 발생하는 패키지 버전을 알려주세요.
+      label: Package version
+      description: Package version causing issue
     validations:
       required: true
   - type: textarea
     id: replicate
     attributes:
-      label: 문제를 재현하는 단계
+      label: Steps to replicate the issue
     validations:
       required: true
   - type: textarea
     id: happens
     attributes:
-      label: 무엇이 발생하나요?
+      label: What happens?
     validations:
       required: true
   - type: textarea
     id: instead
     attributes:
-      label: 대신 무엇이 발생해야 했나요?
+      label: What should have happened instead?
     validations:
       required: true
   - type: textarea
     id: additional
     attributes:
-      label: 추가 정보
-      description: 운영 체제, 닷넷 런타임 버전 등...
+      label: Additional information
+      description: OS, .NET Runtime version, etc...
     validations:
       required: false
