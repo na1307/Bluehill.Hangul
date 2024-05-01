@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test (Debug)
+    name: .NET
     runs-on: windows-latest
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
