@@ -14,6 +14,11 @@ public static class Josa {
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>마지막 글자의 받침 여부에 따라 <paramref name="defaultJosa"/> 또는 <paramref name="jongseong"/> 또는 <paramref name="noJongseong"/>을 붙인 문자열</returns>
     public static string Jongseong(this string str, string defaultJosa, string jongseong, string noJongseong, bool josaOnly) {
+        // 문자열이 비어 있으면 기본 조사를 반환
+        if (string.IsNullOrEmpty(str)) {
+            return defaultJosa;
+        }
+
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
@@ -32,6 +37,11 @@ public static class Josa {
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>마지막 글자의 ㄹ받침 여부에 따라 <paramref name="defaultJosa"/> 또는 <paramref name="rieul"/> 또는 <paramref name="noRieul"/>을 붙인 문자열</returns>
     public static string NoJongseongOrRieul(this string str, string defaultJosa, string rieul, string noRieul, bool josaOnly) {
+        // 문자열이 비어 있으면 기본 조사를 반환
+        if (string.IsNullOrEmpty(str)) {
+            return defaultJosa;
+        }
+
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
