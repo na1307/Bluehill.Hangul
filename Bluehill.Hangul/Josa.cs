@@ -1,4 +1,5 @@
-﻿namespace Bluehill.Hangul;
+﻿
+namespace Bluehill.Hangul;
 
 /// <summary>
 /// 한글 조사 처리 확장 모음
@@ -14,6 +15,27 @@ public static class Josa {
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>마지막 글자의 받침 여부에 따라 <paramref name="defaultJosa"/> 또는 <paramref name="jongseong"/> 또는 <paramref name="noJongseong"/>을 붙인 문자열</returns>
     public static string Jongseong(this string str, string defaultJosa, string jongseong, string noJongseong, bool josaOnly) {
+        if (str is null) {
+            throw new ArgumentNullException(nameof(str));
+        }
+
+        if (defaultJosa is null) {
+            throw new ArgumentNullException(nameof(defaultJosa));
+        }
+
+        if (jongseong is null) {
+            throw new ArgumentNullException(nameof(jongseong));
+        }
+
+        if (noJongseong is null) {
+            throw new ArgumentNullException(nameof(noJongseong));
+        }
+
+        // 문자열이 비어 있으면 기본 조사를 반환
+        if (str == string.Empty) {
+            return defaultJosa;
+        }
+
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
@@ -32,6 +54,27 @@ public static class Josa {
     /// <param name="josaOnly">입력 문자열 없이 조사만 반환할지 여부</param>
     /// <returns>마지막 글자의 ㄹ받침 여부에 따라 <paramref name="defaultJosa"/> 또는 <paramref name="rieul"/> 또는 <paramref name="noRieul"/>을 붙인 문자열</returns>
     public static string NoJongseongOrRieul(this string str, string defaultJosa, string rieul, string noRieul, bool josaOnly) {
+        if (str is null) {
+            throw new ArgumentNullException(nameof(str));
+        }
+
+        if (defaultJosa is null) {
+            throw new ArgumentNullException(nameof(defaultJosa));
+        }
+
+        if (rieul is null) {
+            throw new ArgumentNullException(nameof(rieul));
+        }
+
+        if (noRieul is null) {
+            throw new ArgumentNullException(nameof(noRieul));
+        }
+
+        // 문자열이 비어 있으면 기본 조사를 반환
+        if (str == string.Empty) {
+            return defaultJosa;
+        }
+
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
