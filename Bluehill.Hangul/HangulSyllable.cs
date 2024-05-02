@@ -16,12 +16,16 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// </summary>
     public required char Value {
         get {
-            if (!IsValid) throw new InvalidOperationException(invalidMessage);
+            if (!IsValid) {
+                throw new InvalidOperationException(invalidMessage);
+            }
 
             return _Value;
         }
         init {
-            if (!value.IsHangulSyllable()) throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
+            if (!value.IsHangulSyllable()) {
+                throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
+            }
 
             _Value = value;
         }
@@ -64,7 +68,9 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// <exception cref="ArgumentException"><paramref name="c"/>가 한글 음절 문자가 아님</exception>
     [SetsRequiredMembers]
     public HangulSyllable(char c) {
-        if (!c.IsHangulSyllable()) throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(c));
+        if (!c.IsHangulSyllable()) {
+            throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(c));
+        }
 
         _Value = c;
     }
@@ -87,9 +93,17 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// <exception cref="ArgumentOutOfRangeException">초성 값이 18보다 높을 경우 또는 중성 값이 20보다 높을 경우 또는 종성 값이 27보다 높을 경우</exception>
     [SetsRequiredMembers]
     public HangulSyllable(byte choseong, byte jungseong, byte jongseong) {
-        if (choseong > 18) throw new ArgumentOutOfRangeException(nameof(choseong), choseong, "초성 값은 18 이하여야 합니다.");
-        if (jungseong > 20) throw new ArgumentOutOfRangeException(nameof(jungseong), jungseong, "중성 값은 20 이하여야 합니다.");
-        if (jongseong > 27) throw new ArgumentOutOfRangeException(nameof(jongseong), jongseong, "종성 값은 27 이하여야 합니다.");
+        if (choseong > 18) {
+            throw new ArgumentOutOfRangeException(nameof(choseong), choseong, "초성 값은 18 이하여야 합니다.");
+        }
+
+        if (jungseong > 20) {
+            throw new ArgumentOutOfRangeException(nameof(jungseong), jungseong, "중성 값은 20 이하여야 합니다.");
+        }
+
+        if (jongseong > 27) {
+            throw new ArgumentOutOfRangeException(nameof(jongseong), jongseong, "종성 값은 27 이하여야 합니다.");
+        }
 
         _Value = getChar(choseong, jungseong, jongseong);
     }
@@ -103,9 +117,17 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// <exception cref="ArgumentException"><paramref name="choseong"/>이 초성 낱자가 아님 또는 <paramref name="jungseong"/>이 중성 낱자가 아님 또는 <paramref name="jongseong"/>이 종성 낱자가 아님</exception>
     [SetsRequiredMembers]
     public HangulSyllable(char choseong, char jungseong, char jongseong) {
-        if (!Choseongs.Contains(choseong)) throw new ArgumentException("초성 낱자가 아닙니다.", nameof(choseong));
-        if (!Jungseongs.Contains(jungseong)) throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
-        if (!Jongseongs.Contains(jongseong)) throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
+        if (!Choseongs.Contains(choseong)) {
+            throw new ArgumentException("초성 낱자가 아닙니다.", nameof(choseong));
+        }
+
+        if (!Jungseongs.Contains(jungseong)) {
+            throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
+        }
+
+        if (!Jongseongs.Contains(jongseong)) {
+            throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
+        }
 
         _Value = getChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
 
