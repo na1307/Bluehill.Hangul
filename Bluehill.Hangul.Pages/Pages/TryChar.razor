@@ -1,0 +1,31 @@
+﻿@page "/trychar"
+@inject IStringLocalizer<TryChar> Loc
+
+<PageTitle>Bluehill.Hangul - TryChar</PageTitle>
+
+@Loc["InputToTestText"] <InputText @bind-Value="input" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Loc["Char"]</th>
+            <th>@Loc["Choseong"]</th>
+            <th>@Loc["Jungseong"]</th>
+            <th>@Loc["Jongseong"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in input) {
+            <tr>
+                <td>@c</td>
+                <td>@(c.IsHangulSyllable() ? $"{c.Choseong().ToJamo()} ({c.Choseong()})" : @Loc["NotHangulSyllable"])</td>
+                <td>@(c.IsHangulSyllable() ? $"{c.Jungseong().ToJamo()} ({c.Jungseong()})" : @Loc["NotHangulSyllable"])</td>
+                <td>@(c.IsHangulSyllable() ? (c.Jongseong() != Jongseong.None ? $"{c.Jongseong().ToJamo()} ({c.Jongseong()})" : $"{@Loc["NoneJongseong"]} ({Jongseong.None})") : @Loc["NotHangulSyllable"])</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private string input = string.Empty;
+}

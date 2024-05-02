@@ -1,0 +1,145 @@
+﻿@page "/changelog"
+
+<h2>Changelog</h2>
+
+<h3>2.0.2 (2024-05-02)</h3>
+
+<ol>
+    <li>문자열이 비어 있을 떄 (<code>""</code>) 조사 처리에 실패하는 문제 수정</li>
+</ol>
+
+<h3>2.0.1 (2024-02-06)</h3>
+
+<ol>
+    <li><code>HangulSyllable</code>에서 <code>[Serializable]</code> 제거</li>
+</ol>
+
+<h3>2.0 (2022-12-28)</h3>
+
+<ol>
+    <li>.NET Framework 2.0 지원 중단 (3.5 이상 필요)</li>
+    <li>어셈블리가 강력한 이름으로 서명됨</li>
+    <li><code>HangulSyllable</code> 형식 추가</li>
+    <li>
+        메서드 이름 변경
+        <ol>
+            <li><code>IsHangul</code> → <code>IsHangulSyllable</code></li>
+            <li><code>IsJamo</code> → <code>IsHangulJamo</code></li>
+            <li><code>ToChar</code> → <code>ToJamo</code></li>
+        </ol>
+    </li>
+    <li>
+        상수 이름 변경
+        <ol>
+            <li><code>FirstChar</code> → <code>FirstSyllable</code></li>
+            <li><code>LastChar</code> → <code>LastSyllable</code></li>
+        </ol>
+    </li>
+    <li>
+        메서드 추가
+        <ol>
+            <li><code>IsHangul</code> (이전 <code>IsHangul</code>과 다름)</li>
+            <li><code>IsHangulConsonant</code></li>
+            <li><code>IsHangulVowel</code></li>
+        </ol>
+    </li>
+    <li>
+        상수 추가
+        <ol>
+            <li><code>FirstConsonant</code></li>
+            <li><code>LastConsonant</code></li>
+            <li><code>FirstVowel</code></li>
+            <li><code>LastVowel</code></li>
+            <li><code>HangulFiller</code></li>
+            <li><code>FirstIPFChoseong</code></li>
+            <li><code>LastIPFChoseong</code></li>
+            <li><code>FirstIPFJungseong</code></li>
+            <li><code>LastIPFJungseong</code></li>
+            <li><code>FirstIPFJongseong</code></li>
+            <li><code>LastIPFJongseong</code></li>
+        </ol>
+    </li>
+</ol>
+
+<h4>2.0-beta.2 에서의 변경 사항</h4>
+
+<ol>
+    <li><code>HangulSyllable</code>을 <code>[Serializable]</code>로 표시</li>
+    <li><code>WrappedChar</code> 속성을 <code>Value</code>로 변경</li>
+</ol>
+
+<h3>2.0-beta.2 (2022-12-15)</h3>
+
+<ol>
+    <li>몇몇 곳에서 '문자'에서 '음절'로 표기 수정</li>
+    <li><code>HangulChar</code> → <code>HangulSyllable</code> 이름 변경</li>
+    <li><code>IsHangul</code> → <code>IsHangulSyllable</code> 이름 변경</li>
+    <li><code>IsJamo</code> → <code>IsHangulJamo</code> 이름 변경</li>
+    <li><code>ToChar</code> → <code>ToJamo</code> 이름 변경</li>
+    <li>
+        메서드 추가
+        <ol>
+            <li><code>IsHangul</code> (이전 <code>IsHangul</code>과 다름)</li>
+            <li><code>IsHangulConsonant</code></li>
+            <li><code>IsHangulVowel</code></li>
+        </ol>
+    </li>
+    <li>
+        상수 추가
+        <ol>
+            <li><code>FirstConsonant</code></li>
+            <li><code>LastConsonant</code></li>
+            <li><code>FirstVowel</code></li>
+            <li><code>LastVowel</code></li>
+            <li><code>HangulFiller</code></li>
+            <li><code>FirstIPFChoseong</code></li>
+            <li><code>LastIPFChoseong</code></li>
+            <li><code>FirstIPFJungseong</code></li>
+            <li><code>LastIPFJungseong</code></li>
+            <li><code>FirstIPFJongseong</code></li>
+            <li><code>LastIPFJongseong</code></li>
+        </ol>
+    </li>
+</ol>
+
+<h3>2.0-beta.1 (2022-11-24)</h3>
+
+<ol>
+    <li>.NET Framework 2.0 지원 중단 (3.5 이상 필요)</li>
+    <li><code>HangulChar</code> 추가</li>
+    <li>어셈블리가 강력한 이름으로 서명됨</li>
+</ol>
+
+<h3>1.1.2 (2024-05-02)</h3>
+
+<ol>
+    <li>문자열이 비어 있을 떄 (<code>""</code>) 조사 처리에 실패하는 문제 수정</li>
+</ol>
+
+<h3>1.1.1 (2022-11-22)</h3>
+
+<ol>
+    <li>디버그 기호 (pdb) 제공</li>
+</ol>
+
+<h3>1.1 (2022-11-04)</h3>
+
+<ol>
+    <li>초성, 중성, 종성 열거형 추가</li>
+    <li>문자에서 초성, 중성, 종성 열거형을 얻는 확장 메서드 추가</li>
+    <li>문자가 한글 문자 또는 낱자인지 확인할 수 있는 <code>IsHangul()</code>, <code>IsJamo()</code> 메서드 추가</li>
+    <li><code>HangulConstants</code> 추가</li>
+</ol>
+
+<h3>1.0.1 (2022-10-20)</h3>
+
+<ol>
+    <li>XML 문서 추가</li>
+    <li>ExtensionAttribute 종속성 제거</li>
+</ol>
+
+<h3>1.0 (2022-10-16)</h3>
+
+<ol>
+    <li>최초 릴리스</li>
+</ol>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluehill.Hangul", "Bluehill.Hangul\Bluehill.Hangul.csproj", "{CD2E40E5-4073-4830-8A04-46E760785E95}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluehill.Hangul.Pages", "Bluehill.Hangul.Pages\Bluehill.Hangul.Pages.csproj", "{69A26AF5-145E-45FF-9002-68FA9BFA72BD}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bluehill.Hangul.Tests", "Bluehill.Hangul.Tests\Bluehill.Hangul.Tests.csproj", "{4D8D4365-D2BE-4385-88E2-EF832BEA558E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루션 항목", "{BD876675-1082-4C24-874A-FFAD9C619AB3}"
@@ -12,11 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "솔루션 항목", "솔루�
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
-		Bluehill.Hangul.vsext = Bluehill.Hangul.vsext
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
 		Directory.Packages.props = Directory.Packages.props
-		nuget.config = nuget.config
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -30,6 +30,10 @@ Global
 		{CD2E40E5-4073-4830-8A04-46E760785E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD2E40E5-4073-4830-8A04-46E760785E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD2E40E5-4073-4830-8A04-46E760785E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A26AF5-145E-45FF-9002-68FA9BFA72BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A26AF5-145E-45FF-9002-68FA9BFA72BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A26AF5-145E-45FF-9002-68FA9BFA72BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A26AF5-145E-45FF-9002-68FA9BFA72BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D8D4365-D2BE-4385-88E2-EF832BEA558E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4D8D4365-D2BE-4385-88E2-EF832BEA558E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D8D4365-D2BE-4385-88E2-EF832BEA558E}.Release|Any CPU.ActiveCfg = Release|Any CPU

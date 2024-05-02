@@ -1,0 +1,28 @@
+﻿@page "/tryjosa"
+@inject IStringLocalizer<TryJosa> Loc
+@using System.Reflection;
+
+<PageTitle>Bluehill.Hangul - TryJosa</PageTitle>
+
+@Loc["InputToTest"] <InputText @bind-Value="input" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Loc["Method"]</th>
+            <th>@Loc["Result"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var josaMethod in typeof(Josa).GetMethods(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly).Where(m => m.GetParameters().Length == 1)) {
+            <tr>
+                <td>@josaMethod.Name</td>
+                <td>@josaMethod.Invoke(null, [input])</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private string input = string.Empty;
+}

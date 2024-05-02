@@ -1,0 +1,85 @@
+﻿@page "/howtouse"
+@using HighlightBlazor
+
+<PageTitle>Bluehill.Hangul</PageTitle>
+
+<h2>기본 사용법</h2>
+
+<code>Bluehill.Hangul</code> 네임스페이스를 가져와 사용할 수 있습니다.
+
+<CodeHighlight>
+    using Bluehill.Hangul;
+</CodeHighlight>
+
+<code>global using</code>을 사용하면 각 파일에 추가할 필요 없이 프로젝트의 모든 파일에서 사용할 수 있습니다.
+
+<CodeHighlight>
+    global using Bluehill.Hangul;
+</CodeHighlight>
+
+만약 특정 기능만 필요하다면 <code>using static</code>을 사용할 수도 있습니다.
+
+<CodeHighlight>
+    using static Bluehill.Hangul.Josa;
+</CodeHighlight>
+
+<h2>한글 조사 처리</h2>
+
+을/를, 이/가 등의 한글 조사 처리를 확장 메서드로 간단하게 할 수 있습니다.
+
+다음의 9가지 메서드를 제공합니다.
+
+<ol>
+    <li><code>EunNeun</code> (은/는)</li>
+    <li><code>IGa</code> (이/가)</li>
+    <li><code>I</code> (이)</li>
+    <li><code>EulReul</code> (을/를)</li>
+    <li><code>GwaWa</code> (과/와)</li>
+    <li><code>AYa</code> (아/야)</li>
+    <li><code>EuRo</code> (로/으로)</li>
+    <li><code>Jongseong</code> (커스텀 메서드)</li>
+    <li><code>NoJongseongOrRieul</code> (커스텀 메서드)</li>
+</ol>
+
+<h3>기본 메서드</h3>
+
+<CodeHighlight>
+    Console.WriteLine("성재".EunNeun() + " 내 친구이다."); // 성재는 내 친구이다.
+    Console.WriteLine("아버지".IGa() + " 방에 들어가신다."); // 아버지가 방에 들어가신다.
+    Console.WriteLine("사랑".I() + "네집 떡볶이"); // 사랑이네집 떡볶이
+</CodeHighlight>
+
+<code>defaultJosa</code>와 <code>josaOnly</code> 매개변수를 사용할 수 있습니다. <code>defaultJosa</code>는 마지막 글자가 한글 글자가 아닐 경우 (영문, 숫자, 한자, 한글 자모 등) 붙는 문자열이고 <code>josaOnly</code>를 <code>true</code>로 설정하면 조사만 반환합니다.
+
+<CodeHighlight>
+    Console.WriteLine("Bluehill".EunNeun("은") + " 바보다."); // Bluehill은 바보다.
+    Console.WriteLine("百聞".I("(이/가)") + " 불여일견"); // 百聞(이/가) 불여일견
+    Console.WriteLine("사과".EulReul("을(를)", true) + " 깎는다."); // 를 깎는다.
+</CodeHighlight>
+
+<h3>커스텀 메서드</h3>
+
+<code>Jongseong</code>과 <code>NoJongseongOrRieul</code>은 커스텀 메서드입니다. 모든 매개변수를 제공해야 하며, <code>null</code> 값은 허용되지 않습니다.
+
+<CodeHighlight>
+    Console.WriteLine("당신".Jongseong("은 누굽니까", "은 저희와 함께 하실 수 없습니다.", "는 저희와 함께 하실 수 있습니다.", false)); // 당신은 저희와 함께 하실 수 없습니다.
+    Console.WriteLine("무슨 소릴".NoJongseongOrRieul("", "", "를", false) + "하는 거야 지금"); // 무슨 소릴하는 거야 지금
+    Console.WriteLine("넌".Jongseong("내꺼야", "내꺼야", "저리가", true)); // 내꺼야
+</CodeHighlight>
+
+<h2>문자 처리</h2>
+<h3>자모 얻기</h3>
+
+한글 문자에서 초성 / 중성 / 종성 열거형을 얻고, 열거형을 한글 낱자로 변환할 수 있습니다.
+
+<CodeHighlight>
+    const char gal = '갈';
+    Console.WriteLine(gal.Choseong()); // Giyeok
+    Console.WriteLine(gal.Jungseong()); // A
+    Console.WriteLine(gal.Jongseong()); // Rieul
+    Console.WriteLine(gal.Choseong().ToJamo()); // ㄱ
+</CodeHighlight>
+
+<h3>HangulSyllable 및 기타</h3>
+
+TODO
