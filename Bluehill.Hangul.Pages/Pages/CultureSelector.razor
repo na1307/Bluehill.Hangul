@@ -15,12 +15,7 @@
 
 @code
 {
-    private CultureInfo[] supportedCultures = new[]
-    {
-        new CultureInfo("ko-KR"),
-        new CultureInfo("en-US"),
-    };
-
+    private readonly CultureInfo[] supportedCultures = [new("ko-KR"), new("en-US")];
     private CultureInfo? selectedCulture;
 
     protected override void OnInitialized() {
