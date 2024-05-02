@@ -1,8 +1,8 @@
 ﻿namespace Bluehill.Hangul.Tests;
 
 public sealed class HangulSyllableTest {
-    static readonly HangulSyllable gaChar = new('가');
-    static readonly HangulSyllable hitChar = new('힣');
+    private static readonly HangulSyllable gaChar = new('가');
+    private static readonly HangulSyllable hitChar = new('힣');
 
     [Fact]
     public void ConstructorTest1() {

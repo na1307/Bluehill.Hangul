@@ -1,10 +1,10 @@
 ﻿namespace Bluehill.Hangul.Tests;
 
 public sealed class CharExtensionsTest {
-    const char han = '한';
-    const char giyeok = 'ㄱ';
-    const char ae = 'ㅐ';
-    const char s = 's';
+    private const char han = '한';
+    private const char giyeok = 'ㄱ';
+    private const char ae = 'ㅐ';
+    private const char s = 's';
 
     [Fact]
     public void IsHangulTest() {

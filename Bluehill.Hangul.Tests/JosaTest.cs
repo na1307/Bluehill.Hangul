@@ -1,21 +1,23 @@
-﻿namespace Bluehill.Hangul.Tests;
+﻿using Xunit.Sdk;
+
+namespace Bluehill.Hangul.Tests;
 
 public sealed class JosaTest {
-    const string sagwa = "사과";
-    const string subak = "수박";
-    const string gamgyul = "감귤";
-    const string apple = "Apple";
-    const string watermellon = "Watermellon";
-    const string yunha = "윤하";
-    const string hajun = "하준";
-    const string eunyul = "은율";
-    const string michael = "Michael";
-    const string ben = "Ben";
-    const string daegu = "대구";
-    const string busan = "부산";
-    const string seoul = "서울";
-    const string california = "California";
-    const string newyork = "New York";
+    private const string sagwa = "사과";
+    private const string subak = "수박";
+    private const string gamgyul = "감귤";
+    private const string apple = "Apple";
+    private const string watermellon = "Watermellon";
+    private const string yunha = "윤하";
+    private const string hajun = "하준";
+    private const string eunyul = "은율";
+    private const string michael = "Michael";
+    private const string ben = "Ben";
+    private const string daegu = "대구";
+    private const string busan = "부산";
+    private const string seoul = "서울";
+    private const string california = "California";
+    private const string newyork = "New York";
 
     [Fact]
     public void EunNeunTest() {
@@ -204,5 +206,45 @@ public sealed class JosaTest {
         Assert.Equal(e4, r4);
         Assert.Equal(e5, r5);
         Assert.Equal(e6, r6);
+    }
+
+    [Fact]
+    public void Jongseong_ArgumentNullException1() {
+        Assert.Throws<ArgumentNullException>(() => ((string)null!).Jongseong(string.Empty, string.Empty, string.Empty, false));
+    }
+
+    [Fact]
+    public void Jongseong_ArgumentNullException2() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.Jongseong(null!, string.Empty, string.Empty, false));
+    }
+
+    [Fact]
+    public void Jongseong_ArgumentNullException3() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.Jongseong(string.Empty, null!, string.Empty, false));
+    }
+
+    [Fact]
+    public void Jongseong_ArgumentNullException4() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.Jongseong(string.Empty, string.Empty, null!, false));
+    }
+
+    [Fact]
+    public void NoJongseongOrRieul_ArgumentNullException1() {
+        Assert.Throws<ArgumentNullException>(() => ((string)null!).NoJongseongOrRieul(string.Empty, string.Empty, string.Empty, false));
+    }
+
+    [Fact]
+    public void NoJongseongOrRieul_ArgumentNullException2() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.NoJongseongOrRieul(null!, string.Empty, string.Empty, false));
+    }
+
+    [Fact]
+    public void NoJongseongOrRieul_ArgumentNullException3() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.NoJongseongOrRieul(string.Empty, null!, string.Empty, false));
+    }
+
+    [Fact]
+    public void NoJongseongOrRieul_ArgumentNullException4() {
+        Assert.Throws<ArgumentNullException>(() => sagwa.NoJongseongOrRieul(string.Empty, string.Empty, null!, false));
     }
 }
