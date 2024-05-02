@@ -38,6 +38,17 @@ public sealed class HangulSyllableTest {
     }
 
     [Fact]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "<보류 중>")]
+    public void ValueTest1() {
+        _ = new HangulSyllable() { Value = gaChar };
+    }
+
+    [Fact]
+    public void ValueTest2() {
+        Assert.Throws<ArgumentException>(() => new HangulSyllable() { Value = 'c' });
+    }
+
+    [Fact]
     public void ChoseongTest() {
         Assert.Equal(Choseong.Giyeok, HangulSyllable.MinValue.Choseong);
         Assert.Throws<InvalidOperationException>(() => default(HangulSyllable).Choseong);
