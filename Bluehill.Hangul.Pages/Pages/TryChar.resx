@@ -123,7 +123,7 @@
   <data name="Choseong" xml:space="preserve">
     <value>초성</value>
   </data>
-  <data name="InputToTestText" xml:space="preserve">
+  <data name="InputToTest" xml:space="preserve">
     <value>텍스트를 입력하여 시험하세요:</value>
   </data>
   <data name="Jongseong" xml:space="preserve">

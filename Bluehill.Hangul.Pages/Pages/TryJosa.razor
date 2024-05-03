@@ -1,12 +1,17 @@
-﻿@page "/tryjosa"
+﻿@using System.Reflection;
+@page "/tryjosa"
 @inject IStringLocalizer<TryJosa> Loc
-@using System.Reflection;
 
 <PageTitle>Bluehill.Hangul - TryJosa</PageTitle>
 
-@Loc["InputToTest"] <InputText @bind-Value="input" />
+<p>
+    <label>
+        @Loc["InputToTest"]
+        <InputText id="input" @bind-Value="input" />
+    </label>
+</p>
 
-<table class="table">
+<table id="results" class="table">
     <thead>
         <tr>
             <th>@Loc["Method"]</th>

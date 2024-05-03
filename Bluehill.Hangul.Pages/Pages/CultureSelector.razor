@@ -13,14 +13,11 @@
     </label>
 </p>
 
-@code
-{
+@code {
     private readonly CultureInfo[] supportedCultures = [new("ko-KR"), new("en-US")];
     private CultureInfo? selectedCulture;
 
-    protected override void OnInitialized() {
-        selectedCulture = CultureInfo.CurrentCulture;
-    }
+    protected override void OnInitialized() => selectedCulture = CultureInfo.CurrentCulture;
 
     private async Task ApplySelectedCultureAsync() {
         if (CultureInfo.CurrentCulture != selectedCulture) {

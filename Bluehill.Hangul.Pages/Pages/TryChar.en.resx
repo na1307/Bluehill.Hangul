@@ -123,7 +123,7 @@
   <data name="Choseong" xml:space="preserve">
     <value>Choseong</value>
   </data>
-  <data name="InputToTestText" xml:space="preserve">
+  <data name="InputToTest" xml:space="preserve">
     <value>Enter the text to test it out:</value>
   </data>
   <data name="Jongseong" xml:space="preserve">

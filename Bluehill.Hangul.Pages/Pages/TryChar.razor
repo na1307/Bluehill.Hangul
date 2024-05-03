@@ -3,9 +3,14 @@
 
 <PageTitle>Bluehill.Hangul - TryChar</PageTitle>
 
-@Loc["InputToTestText"] <InputText @bind-Value="input" />
+<p>
+    <label>
+        @Loc["InputToTest"]
+        <InputText id="input" @bind-Value="input" />
+    </label>
+</p>
 
-<table class="table">
+<table id="results" class="table">
     <thead>
         <tr>
             <th>@Loc["Char"]</th>
@@ -18,9 +23,13 @@
         @foreach (var c in input) {
             <tr>
                 <td>@c</td>
-                <td>@(c.IsHangulSyllable() ? $"{c.Choseong().ToJamo()} ({c.Choseong()})" : @Loc["NotHangulSyllable"])</td>
-                <td>@(c.IsHangulSyllable() ? $"{c.Jungseong().ToJamo()} ({c.Jungseong()})" : @Loc["NotHangulSyllable"])</td>
-                <td>@(c.IsHangulSyllable() ? (c.Jongseong() != Jongseong.None ? $"{c.Jongseong().ToJamo()} ({c.Jongseong()})" : $"{@Loc["NoneJongseong"]} ({Jongseong.None})") : @Loc["NotHangulSyllable"])</td>
+                @if (c.IsHangulSyllable()) {
+                    <td>@($"{c.Choseong().ToJamo()} ({c.Choseong()})")</td>
+                    <td>@($"{c.Jungseong().ToJamo()} ({c.Jungseong()})")</td>
+                    <td>@(c.Jongseong() != Jongseong.None ? $"{c.Jongseong().ToJamo()} ({c.Jongseong()})" : $"{@Loc["NoneJongseong"]} ({Jongseong.None})")</td>
+                } else {
+                    <td colspan="3" style="text-align: center;">@Loc["NotHangulSyllable"]</td>
+                }
             </tr>
         }
     </tbody>

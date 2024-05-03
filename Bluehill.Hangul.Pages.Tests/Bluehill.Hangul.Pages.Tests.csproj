@@ -8,6 +8,7 @@
     <Using Include="Bunit" />
     <Using Include="Bunit.TestDoubles" />
     <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.Localization"/>
     <Using Include="Xunit" />
   </ItemGroup>
   <ItemGroup>
