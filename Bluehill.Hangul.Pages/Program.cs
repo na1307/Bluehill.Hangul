@@ -1,33 +1,39 @@
-using Bluehill.Hangul.Pages;
 using HighlightBlazor;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.JSInterop;
 using System.Globalization;
 
-var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
+namespace Bluehill.Hangul.Pages;
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+internal static class Program {
+    private static async Task Main(string[] args) {
+        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        builder.RootComponents.Add<App>("#app");
+        builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddLocalization();
+        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddHighlight();
+        builder.Services.AddLocalization();
 
-var host = builder.Build();
+        builder.Services.AddHighlight();
 
-const string defaultCulture = "ko-KR";
+        var host = builder.Build();
 
-var js = host.Services.GetRequiredService<IJSRuntime>();
-var result = await js.InvokeAsync<string>("blazorCulture.get");
-var culture = CultureInfo.GetCultureInfo(result ?? defaultCulture);
+        const string defaultCulture = "ko-KR";
 
-if (result == null) {
-    await js.InvokeVoidAsync("blazorCulture.set", defaultCulture);
+        var js = host.Services.GetRequiredService<IJSRuntime>();
+        var result = await js.InvokeAsync<string>("blazorCulture.get");
+        var culture = CultureInfo.GetCultureInfo(result ?? defaultCulture);
+
+        if (result == null) {
+            await js.InvokeVoidAsync("blazorCulture.set", defaultCulture);
+        }
+
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+        await host.RunAsync();
+    }
 }
-
-CultureInfo.DefaultThreadCurrentCulture = culture;
-CultureInfo.DefaultThreadCurrentUICulture = culture;
-
-await host.RunAsync();

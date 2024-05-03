@@ -1,10 +1,11 @@
 ﻿@inherits LayoutComponentBase
 @inject IStringLocalizer<MainLayout> Loc
+@attribute [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 
 <div class="page">
     <main>
         <div class="top-row px-4">
-            <Bluehill.Hangul.Pages.Pages.CultureSelector />
+            <CultureSelector />
             <NavLink href=".">@Loc["Home"]</NavLink>
             <NavLink href="howtouse">@Loc["HowToUse"]</NavLink>
             <NavLink href="tryjosa">@Loc["TryJosa"]</NavLink>
