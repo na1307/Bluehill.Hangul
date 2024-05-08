@@ -1,9 +1,10 @@
 <Project>
   <PropertyGroup>
+    <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>Nullable</WarningsAsErrors>
-    <LangVersion>latest</LangVersion>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <Authors>na1307</Authors>
     <Company>Bluehill</Company>
     <Product>Bluehill.Hangul</Product>

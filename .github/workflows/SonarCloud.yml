@@ -9,7 +9,12 @@ jobs:
   build:
     name: SonarCloud
     runs-on: windows-latest
+    env:
+      NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -19,48 +24,19 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v4
-        with:
-          path: ~\sonar\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarCloud scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@v4
-        with:
-          path: .\.sonar\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarCloud scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+          cache: true
+          cache-dependency-path: '**/packages.lock.json'
+      - name: Install Tools
         shell: powershell
-        run: |
-          New-Item -Path .\.sonar\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-      - name: Cache dotnet-coverage
-        id: cache-dotnet-coverage
-        uses: actions/cache@v4
-        with:
-          path: .\dotnet-coverage
-          key: ${{ runner.os }}-dotnet-coverage
-          restore-keys: ${{ runner.os }}-dotnet-coverage
-      - name: Install dotnet-coverage
-        if: steps.cache-dotnet-coverage.outputs.cache-hit != 'true'
-        shell: powershell
-        run: |
-          New-Item -Path .\dotnet-coverage -ItemType Directory
-          dotnet tool update dotnet-coverage --tool-path .\dotnet-coverage
+        run: dotnet tool restore
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"na1307_Bluehill.Hangul" /o:"na1307" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          dotnet dotnet-sonarscanner begin /k:"na1307_Bluehill.Hangul" /o:"na1307" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          dotnet restore --locked-mode
           dotnet build --no-incremental
-          .\dotnet-coverage\dotnet-coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet dotnet-coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
+          dotnet dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
