@@ -24,8 +24,12 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-          cache: true
-          cache-dependency-path: '**/packages.lock.json'
+      - name: Cache NuGet
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.nuget/packages
+          key: ${{ runner.os }}-sonar-nuget-${{ hashFiles('Directory.Packages.props', '.config/dotnet-tools.json') }} #hash of project files
+          restore-keys: ${{ runner.os }}-sonar-nuget-
       - name: Install Tools
         shell: powershell
         run: dotnet tool restore
@@ -35,8 +39,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          dotnet dotnet-sonarscanner begin /k:"na1307_Bluehill.Hangul" /o:"na1307" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          dotnet sonarscanner begin /k:"na1307_Bluehill.Hangul" /o:"na1307" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           dotnet restore --locked-mode
           dotnet build --no-incremental
-          dotnet dotnet-coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
-          dotnet dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
+          dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"

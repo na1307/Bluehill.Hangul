@@ -22,8 +22,12 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-        cache: true
-        cache-dependency-path: '**/packages.lock.json'
+    - name: Cache NuGet
+      uses: actions/cache@v4
+      with:
+        path: ${{ github.workspace }}/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('Directory.Packages.props') }} #hash of project files
+        restore-keys: ${{ runner.os }}-nuget-
     - name: Restore dependencies
       run: dotnet restore
     - name: Build (Debug)
