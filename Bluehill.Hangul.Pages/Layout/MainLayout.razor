@@ -4,21 +4,23 @@
 
 <div class="page">
     <main>
-        <div class="top-row px-4">
-            <CultureSelector />
-            <NavLink href=".">@Loc["Home"]</NavLink>
-            <NavLink href="howtouse">@Loc["HowToUse"]</NavLink>
-            <NavLink href="tryjosa">@Loc["TryJosa"]</NavLink>
-            <NavLink href="trychar">@Loc["TryChar"]</NavLink>
-            <NavLink href="changelog">@Loc["ChangeLog"]</NavLink>
-        </div>
+        <div class="flex-wrapper">
+            <div class="top-row px-4">
+                <CultureSelector />
+                <NavLink href=".">@Loc["Home"]</NavLink>
+                <NavLink href="howtouse">@Loc["HowToUse"]</NavLink>
+                <NavLink href="tryjosa">@Loc["TryJosa"]</NavLink>
+                <NavLink href="trychar">@Loc["TryChar"]</NavLink>
+                <NavLink href="changelog">@Loc["ChangeLog"]</NavLink>
+            </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
+            <article class="content px-4">
+                @Body
+            </article>
 
-        <div class="bottom-row px-4">
-            <p>Copyright © Bluehill 2024</p>
+            <div class="bottom-row px-4">
+                Copyright © Bluehill 2024
+            </div>
         </div>
     </main>
 </div>
