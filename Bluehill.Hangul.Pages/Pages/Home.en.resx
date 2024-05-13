@@ -126,6 +126,9 @@
   <data name="HowToUse" xml:space="preserve">
     <value>How to Use (한국어)</value>
   </data>
+  <data name="OneToTwo" xml:space="preserve">
+    <value>1.x → 2.x Upgrade Guide (한국어)</value>
+  </data>
   <data name="Try" xml:space="preserve">
     <value>Try it!</value>
   </data>

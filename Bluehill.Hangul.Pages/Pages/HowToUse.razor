@@ -80,6 +80,46 @@
     Console.WriteLine(gal.Choseong().ToJamo()); // ㄱ
 </CodeHighlight>
 
-<h3>HangulSyllable 및 기타</h3>
+<h3>HangulSyllable</h3>
 
-<p>TODO</p>
+<p>한글 만을 위한 구조체로 <code>HangulSyllable</code> 형식을 제공하고 있습니다.</p>
+
+<CodeHighlight>
+    const char ga = '가';
+    const char a = 'a';
+    HangulSyllable gaChar = new(ga);
+    HangulSyllable aChar = new(a); // ArgumentException
+</CodeHighlight>
+
+<p><code>HangulSyllable</code> 형식에서 바로 초성, 중성, 종성 열거형을 얻는 것이 가능합니다.</p>
+
+<CodeHighlight>
+    const char kim = '김';
+    HangulSyllable kimChar = new(kim);
+    Console.WriteLine(kimChar.Choseong); // Giyeok
+    Console.WriteLine(kimChar.Jungseong); // I
+    Console.WriteLine(kimChar.Jongseong); // Mieum
+</CodeHighlight>
+
+<p>또한 <code>HangulSyllable</code> 형식은 <code>Deconstruct</code> 메서드를 제공하고 있어, 다음과 같은 구문으로 초성, 중성, 종성을 얻는 것도 가능합니다.</p>
+
+<CodeHighlight>
+    var (giyeok, i, mieum) = new HangulSyllable(kim);
+</CodeHighlight>
+
+<h3><code>char</code> 확장 메서드</h3>
+
+<p>그 외에도 <code>char</code>의 확장 메서드로 다음 메서드들을 제공하고 있습니다.</p>
+
+<ul>
+    <li><code>IsHangul</code></li>
+    <li><code>IsHangulSyllable</code></li>
+    <li><code>IsHangulJamo</code></li>
+    <li><code>IsHangulConsonant</code></li>
+    <li><code>IsHangulVowel</code></li>
+</ul>
+
+<h2>기타</h2>
+<h3>한글 관련 상수</h3>
+
+<p>한글 관련 상수들이 <code>HangulConstants</code> 클래스에 제공되고 있습니다. 조사, 문자, 자모, 한글 채움 문자, 첫가끝 자모 등을 사용할 수 있습니다.</p>

@@ -12,56 +12,6 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     private readonly char _Value;
 
     /// <summary>
-    /// 실제 <see cref="char"/>
-    /// </summary>
-    public required char Value {
-        get {
-            if (!IsValid) {
-                throw new InvalidOperationException(invalidMessage);
-            }
-
-            return _Value;
-        }
-        init {
-            if (!value.IsHangulSyllable()) {
-                throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
-            }
-
-            _Value = value;
-        }
-    }
-
-    /// <summary>
-    /// <see cref="HangulSyllable"/>의 최소값을 나타냄
-    /// </summary>
-    public static HangulSyllable MinValue { get; } = new(FirstSyllable);
-
-    /// <summary>
-    /// <see cref="HangulSyllable"/>의 최대값을 나타냄
-    /// </summary>
-    public static HangulSyllable MaxValue { get; } = new(LastSyllable);
-
-    /// <summary>
-    /// 이 한글 음절의 초성에 대한 <see cref="Hangul.Choseong"/> 값
-    /// </summary>
-    public Choseong Choseong => IsValid ? (Choseong)((_Value - FirstSyllable) / 28 / 21) : throw new InvalidOperationException(invalidMessage);
-
-    /// <summary>
-    /// 이 한글 음절의 중성에 대한 <see cref="Hangul.Jungseong"/> 값
-    /// </summary>
-    public Jungseong Jungseong => IsValid ? (Jungseong)((_Value - FirstSyllable) / 28 % 21) : throw new InvalidOperationException(invalidMessage);
-
-    /// <summary>
-    /// 이 한글 음절의 종성에 대한 <see cref="Hangul.Jongseong"/> 값
-    /// </summary>
-    public Jongseong Jongseong => IsValid ? (Jongseong)((_Value - FirstSyllable) % 28) : throw new InvalidOperationException(invalidMessage);
-
-    /// <summary>
-    /// 이 <see cref="HangulSyllable"/>가 올바른지 여부
-    /// </summary>
-    public bool IsValid => _Value.IsHangulSyllable();
-
-    /// <summary>
     /// 지정한 한글 음절 문자를 사용하여 새 <see cref="HangulSyllable"/> 인스턴스를 만듦
     /// </summary>
     /// <param name="c">한글 음절 문자</param>
@@ -133,6 +83,56 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
 
         static byte getByte(char[] array, char value) => (byte)Array.IndexOf(array, value);
     }
+
+    /// <summary>
+    /// 실제 <see cref="char"/>
+    /// </summary>
+    public required char Value {
+        get {
+            if (!IsValid) {
+                throw new InvalidOperationException(invalidMessage);
+            }
+
+            return _Value;
+        }
+        init {
+            if (!value.IsHangulSyllable()) {
+                throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
+            }
+
+            _Value = value;
+        }
+    }
+
+    /// <summary>
+    /// <see cref="HangulSyllable"/>의 최소값을 나타냄
+    /// </summary>
+    public static HangulSyllable MinValue { get; } = new(FirstSyllable);
+
+    /// <summary>
+    /// <see cref="HangulSyllable"/>의 최대값을 나타냄
+    /// </summary>
+    public static HangulSyllable MaxValue { get; } = new(LastSyllable);
+
+    /// <summary>
+    /// 이 한글 음절의 초성에 대한 <see cref="Hangul.Choseong"/> 값
+    /// </summary>
+    public Choseong Choseong => IsValid ? (Choseong)((_Value - FirstSyllable) / 28 / 21) : throw new InvalidOperationException(invalidMessage);
+
+    /// <summary>
+    /// 이 한글 음절의 중성에 대한 <see cref="Hangul.Jungseong"/> 값
+    /// </summary>
+    public Jungseong Jungseong => IsValid ? (Jungseong)((_Value - FirstSyllable) / 28 % 21) : throw new InvalidOperationException(invalidMessage);
+
+    /// <summary>
+    /// 이 한글 음절의 종성에 대한 <see cref="Hangul.Jongseong"/> 값
+    /// </summary>
+    public Jongseong Jongseong => IsValid ? (Jongseong)((_Value - FirstSyllable) % 28) : throw new InvalidOperationException(invalidMessage);
+
+    /// <summary>
+    /// 이 <see cref="HangulSyllable"/>가 올바른지 여부
+    /// </summary>
+    public bool IsValid => _Value.IsHangulSyllable();
 
     /// <summary>
     /// 이 한글 음절 문자를 <see cref="HangulSyllable"/>로 변환

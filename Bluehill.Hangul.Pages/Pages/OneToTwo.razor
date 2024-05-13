@@ -1,0 +1,25 @@
+﻿@page "/1to2"
+
+<PageTitle>Bluehill.Hangul - Changelog</PageTitle>
+
+<h2>업그레이드 가이드</h2>
+
+<p>2.x 버전에는 <b>.NET Framework 3.5 이상</b>이 필요합니다. .NET Framework 2.0 ~ 3.0의 경우에는 1.x 버전을 계속 사용하십시오.</p>
+
+<ol>
+    <li>
+        메서드를 다음과 같이 변경합니다.
+        <ol>
+            <li><code>IsHangul</code> → <code>IsHangulSyllable</code></li>
+            <li><code>IsJamo</code> → <code>IsHangulJamo</code></li>
+            <li><code>ToChar</code> → <code>ToJamo</code></li>
+        </ol>
+    </li>
+    <li>
+        상수를 다음과 같이 변경합니다.
+        <ol>
+            <li><code>FirstChar</code> → <code>FirstSyllable</code></li>
+            <li><code>LastChar</code> → <code>LastSyllable</code></li>
+        </ol>
+    </li>
+</ol>

@@ -126,6 +126,9 @@
   <data name="HowToUse" xml:space="preserve">
     <value>사용법과 기능</value>
   </data>
+  <data name="OneToTwo" xml:space="preserve">
+    <value>1.x → 2.x 업그레이드 가이드</value>
+  </data>
   <data name="Try" xml:space="preserve">
     <value>사용해 보기</value>
   </data>

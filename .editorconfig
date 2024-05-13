@@ -82,14 +82,14 @@ csharp_style_var_for_built_in_types = true
 csharp_style_var_when_type_is_apparent = true
 
 # 식 본문 멤버
-csharp_style_expression_bodied_accessors = when_on_single_line
-csharp_style_expression_bodied_constructors = when_on_single_line
-csharp_style_expression_bodied_indexers = when_on_single_line
-csharp_style_expression_bodied_lambdas = when_on_single_line
-csharp_style_expression_bodied_local_functions = when_on_single_line
-csharp_style_expression_bodied_methods = when_on_single_line
-csharp_style_expression_bodied_operators = when_on_single_line
-csharp_style_expression_bodied_properties = when_on_single_line
+csharp_style_expression_bodied_accessors = true
+csharp_style_expression_bodied_constructors = true
+csharp_style_expression_bodied_indexers = true
+csharp_style_expression_bodied_lambdas = true
+csharp_style_expression_bodied_local_functions = true
+csharp_style_expression_bodied_methods = true
+csharp_style_expression_bodied_operators = true
+csharp_style_expression_bodied_properties = true
 
 # 패턴 일치 기본 설정
 csharp_style_pattern_matching_over_as_with_null_check = true
@@ -208,6 +208,3 @@ dotnet_naming_style.begins_with_i.required_prefix = I
 dotnet_naming_style.begins_with_i.required_suffix = 
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
-
-# SYSLIB1054: 컴파일 타임에 P/Invoke 마샬링 코드를 생성하려면 'DllImportAttribute' 대신 'LibraryImportAttribute'를 사용하세요.
-dotnet_diagnostic.SYSLIB1054.severity = none
