@@ -23,6 +23,9 @@
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Bluehill.Hangul.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b9413eeb9524e808bd9bf850efe059b9d491fd37de4f1828230ca2a5984c3bb5210770aaeb06eb7bad42b5dc051a65677e874db5e7f8743ddf189a922dd596c3b4aab19103f6992dabc281e2acbd8b482b0ffc8895c1675229847ca9ef17e3025e40a14c86e5125f3ac67ea3a08012071dc42d70c4db00af40dfbe805036a2b8</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">

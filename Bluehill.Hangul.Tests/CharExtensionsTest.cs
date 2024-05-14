@@ -185,7 +185,7 @@ public sealed class CharExtensionsTest {
     [InlineData(han, Choseong.Hieut)]
     [InlineData(mul, Choseong.Mieum)]
     [InlineData(sae, Choseong.Siot)]
-    public void Choseong_Equals(char input, Choseong expected) {
+    public void Choseong_Equal(char input, Choseong expected) {
         Assert.Equal(expected, input.Choseong());
     }
 
@@ -206,7 +206,7 @@ public sealed class CharExtensionsTest {
     [InlineData(han, Jungseong.A)]
     [InlineData(mul, Jungseong.U)]
     [InlineData(sae, Jungseong.Ae)]
-    public void Jungseong_Equals(char input, Jungseong expected) {
+    public void Jungseong_Equal(char input, Jungseong expected) {
         Assert.Equal(expected, input.Jungseong());
     }
 
@@ -227,7 +227,7 @@ public sealed class CharExtensionsTest {
     [InlineData(han, Jongseong.Nieun)]
     [InlineData(mul, Jongseong.Rieul)]
     [InlineData(sae, Jongseong.None)]
-    public void Jongseong_Equals(char input, Jongseong expected) {
+    public void Jongseong_Equal(char input, Jongseong expected) {
         Assert.Equal(expected, input.Jongseong());
     }
 
@@ -242,5 +242,41 @@ public sealed class CharExtensionsTest {
     [InlineData(dollarSign)]
     public void Jongseong_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("c", () => input.Jungseong());
+    }
+
+    [Theory]
+    [InlineData(ipfChosesongNieun, 'ㄴ')]
+    [InlineData(ipfJungseongO, 'ㅗ')]
+    [InlineData(ipfJongseongRieul, 'ㄹ')]
+    public void ToCompatibilityJamo_Equal(char input, char expected) {
+        Assert.Equal(expected, input.ToCompatibilityJamo());
+    }
+
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void ToCompatibilityJamo_ThrowsArgumentException(char input) {
+        Assert.Throws<ArgumentException>("ipfJamo", () => input.ToCompatibilityJamo());
+    }
+
+    [Fact]
+    public void ToCompatibilityJamo_TableTest() {
+        for (int choi = 0; choi <= LastIPFChoseong - FirstIPFChoseong; choi++) {
+            Assert.Equal(Internal.Choseongs[choi], ((char)(FirstIPFChoseong + choi)).ToCompatibilityJamo());
+        }
+
+        for (int jungi = 0; jungi <= LastIPFJungseong - FirstIPFJungseong; jungi++) {
+            Assert.Equal(Internal.Jungseongs[jungi], ((char)(FirstIPFJungseong + jungi)).ToCompatibilityJamo());
+        }
+
+        for (int jongi = 0; jongi <= LastIPFJongseong - FirstIPFJongseong; jongi++) {
+            Assert.Equal(Internal.Jongseongs[jongi + 1], ((char)(FirstIPFJongseong + jongi)).ToCompatibilityJamo());
+        }
     }
 }
