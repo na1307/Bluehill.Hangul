@@ -1,20 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net35;net40;netstandard2.1;net7.0</TargetFrameworks>
+    <TargetFrameworks>net20;net35;netstandard2.1;net7.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>한글 관련 라이브러리</Description>
     <AssemblyVersion>2</AssemblyVersion>
-    <FileVersion>2.0.3</FileVersion>
-    <Version>2.0.3</Version>
+    <FileVersion>2.1.0</FileVersion>
+    <Version>2.1-alpha</Version>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
-    <NoWarn>$(NoWarn);0436</NoWarn>
+    <NoWarn>$(NoWarn);0436;CA1510;IDE0056</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="System.Diagnostics.CodeAnalysis" />
     <Using Include="Bluehill.Hangul.HangulConstants" Static="true" />
     <Using Include="Bluehill.Hangul.Internal" Static="true" />
+    <Using Remove="System.Linq" />
     <Using Remove="System.Net.Http" />
     <Using Remove="System.Threading.Tasks" />
   </ItemGroup>
@@ -22,9 +23,6 @@
     <AssemblyAttribute Include="System.CLSCompliantAttribute">
       <_Parameter1>true</_Parameter1>
     </AssemblyAttribute>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="IndexRange" PrivateAssets="all"  Condition="'$(TargetFramework)' == 'net35' or '$(TargetFramework)' == 'net40'" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">

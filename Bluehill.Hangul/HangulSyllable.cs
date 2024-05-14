@@ -67,15 +67,15 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// <exception cref="ArgumentException"><paramref name="choseong"/>이 초성 낱자가 아님 또는 <paramref name="jungseong"/>이 중성 낱자가 아님 또는 <paramref name="jongseong"/>이 종성 낱자가 아님</exception>
     [SetsRequiredMembers]
     public HangulSyllable(char choseong, char jungseong, char jongseong) {
-        if (!Choseongs.Contains(choseong)) {
+        if (!((ICollection<char>)Choseongs).Contains(choseong)) {
             throw new ArgumentException("초성 낱자가 아닙니다.", nameof(choseong));
         }
 
-        if (!Jungseongs.Contains(jungseong)) {
+        if (!((ICollection<char>)Jungseongs).Contains(jungseong)) {
             throw new ArgumentException("중성 낱자가 아닙니다.", nameof(jungseong));
         }
 
-        if (!Jongseongs.Contains(jongseong)) {
+        if (!((ICollection<char>)Jongseongs).Contains(jongseong)) {
             throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
         }
 
