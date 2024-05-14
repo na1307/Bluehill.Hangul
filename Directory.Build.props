@@ -14,7 +14,7 @@
     <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>https://na1307.github.io/Bluehill.Hangul/CHANGELOG.html</PackageReleaseNotes>
+    <PackageReleaseNotes>https://na1307.github.io/Bluehill.Hangul/Changelog</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/na1307/Bluehill.Hangul</RepositoryUrl>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>

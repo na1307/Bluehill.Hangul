@@ -51,15 +51,22 @@ jobs:
     if: ${{ github.event_name == 'release' }}
     needs: build
     runs-on: ubuntu-latest
+    env:
+      NUGET_AUTH_TOKEN: ${{ secrets.NUGET_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+          source-url: https://api.nuget.org/v3/index.json
       - name: Download Package artifact
         uses: actions/download-artifact@v4
         with:
           name: ${{ github.event.repository.name }}.nupkg
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*.nupkg"
       - name: Publish to Nuget
-        run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_KEY }} --skip-duplicate
+        run: 'dotnet nuget push "*.nupkg" --skip-duplicate'

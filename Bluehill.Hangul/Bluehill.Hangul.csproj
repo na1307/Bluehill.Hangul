@@ -6,7 +6,7 @@
     <Description>한글 관련 라이브러리</Description>
     <AssemblyVersion>2</AssemblyVersion>
     <FileVersion>2.1.0</FileVersion>
-    <Version>2.1-gh-actions-test.0</Version>
+    <Version>2.1-gh-actions-test.1</Version>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
     <NoWarn>$(NoWarn);0436;CA1510;IDE0056</NoWarn>
