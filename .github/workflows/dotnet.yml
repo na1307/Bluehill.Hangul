@@ -8,6 +8,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  release:
+    types: [ "published" ]
 
 jobs:
   build:
@@ -42,4 +44,22 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ github.event.repository.name }}.nupkg
-        path: ${{ env.OUTPUT_PATH }}/*.nupkg
+        path: ${{ env.OUTPUT_PATH }}/*.*nupkg
+
+  publish:
+    name: Publish to NuGet
+    if: ${{ github.event_name == 'release' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Download Package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ github.event.repository.name }}.nupkg
+      - name: Publish to Nuget
+        run: dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_KEY }} --skip-duplicate

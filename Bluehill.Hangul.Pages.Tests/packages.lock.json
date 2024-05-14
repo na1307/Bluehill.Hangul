@@ -415,7 +415,7 @@
       "bluehill.hangul.pages": {
         "type": "Project",
         "dependencies": {
-          "Bluehill.Hangul": "[2.0.3, )",
+          "Bluehill.Hangul": "[2.1.0-gh-actions-test.0, )",
           "HighlightBlazor": "[0.1.10, )",
           "Microsoft.AspNetCore.Components.WebAssembly": "[8.0.4, )",
           "Microsoft.AspNetCore.Components.WebAssembly.DevServer": "[8.0.4, )",
