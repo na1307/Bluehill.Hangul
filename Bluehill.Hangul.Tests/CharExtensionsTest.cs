@@ -6,6 +6,9 @@ public sealed class CharExtensionsTest {
     private const char sae = '새';
     private const char giyeok = 'ㄱ';
     private const char ae = 'ㅐ';
+    private const char ipfChosesongNieun = 'ᄂ';
+    private const char ipfJungseongO = 'ᅩ';
+    private const char ipfJongseongRieul = 'ᆯ';
     private const char s = 's';
     private const char one = '1';
     private const char dollarSign = '$';
@@ -21,6 +24,9 @@ public sealed class CharExtensionsTest {
     }
 
     [Theory]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
@@ -39,6 +45,9 @@ public sealed class CharExtensionsTest {
     [Theory]
     [InlineData(giyeok)]
     [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
@@ -57,6 +66,9 @@ public sealed class CharExtensionsTest {
     [InlineData(han)]
     [InlineData(mul)]
     [InlineData(sae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
@@ -75,6 +87,9 @@ public sealed class CharExtensionsTest {
     [InlineData(mul)]
     [InlineData(sae)]
     [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
@@ -93,11 +108,77 @@ public sealed class CharExtensionsTest {
     [InlineData(mul)]
     [InlineData(sae)]
     [InlineData(giyeok)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
     public void IsHangulVowel_ReturnFalse(char input) {
         Assert.False(input.IsHangulVowel());
+    }
+
+    [Theory]
+    [InlineData(ipfChosesongNieun)]
+    public void IsHangulIPFChoseong_ReturnTrue(char input) {
+        Assert.True(input.IsHangulIPFChoseong());
+    }
+
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulIPFChoseong_ReturnFalse(char input) {
+        Assert.False(input.IsHangulIPFChoseong());
+    }
+
+    [Theory]
+    [InlineData(ipfJungseongO)]
+    public void IsHangulIPFJungseong_ReturnTrue(char input) {
+        Assert.True(input.IsHangulIPFJungseong());
+    }
+
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJongseongRieul)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulIPFJungseong_ReturnFalse(char input) {
+        Assert.False(input.IsHangulIPFJungseong());
+    }
+
+    [Theory]
+    [InlineData(ipfJongseongRieul)]
+    public void IsHangulIPFJongseong_ReturnTrue(char input) {
+        Assert.True(input.IsHangulIPFJongseong());
+    }
+
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulIPFJongseong_ReturnFalse(char input) {
+        Assert.False(input.IsHangulIPFJongseong());
     }
 
     [Theory]
@@ -111,6 +192,9 @@ public sealed class CharExtensionsTest {
     [Theory]
     [InlineData(giyeok)]
     [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
@@ -129,10 +213,13 @@ public sealed class CharExtensionsTest {
     [Theory]
     [InlineData(giyeok)]
     [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
-    public void Jngseong_ThrowsArgumentException(char input) {
+    public void Jungseong_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("c", () => input.Jungseong());
     }
 
@@ -147,6 +234,9 @@ public sealed class CharExtensionsTest {
     [Theory]
     [InlineData(giyeok)]
     [InlineData(ae)]
+    [InlineData(ipfChosesongNieun)]
+    [InlineData(ipfJungseongO)]
+    [InlineData(ipfJongseongRieul)]
     [InlineData(s)]
     [InlineData(one)]
     [InlineData(dollarSign)]
