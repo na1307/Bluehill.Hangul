@@ -40,6 +40,27 @@ public static class CharExtensions {
     public static bool IsHangulVowel(this char c) => c is >= FirstVowel and <= LastVowel;
 
     /// <summary>
+    /// 문자가 한글 첫가끝 코드 초성인지 여부
+    /// </summary>
+    /// <param name="c">문자</param>
+    /// <returns>문자가 한글 첫가끝 코드 초성이라면 <see langword="true"/>, 아니라면 <see langword="false"/></returns>
+    public static bool IsHangulIPFChoseong(this char c) => c is >= FirstIPFChoseong and <= LastIPFChoseong;
+
+    /// <summary>
+    /// 문자가 한글 첫가끝 코드 중성인지 여부
+    /// </summary>
+    /// <param name="c">문자</param>
+    /// <returns>문자가 한글 첫가끝 코드 중성이라면 <see langword="true"/>, 아니라면 <see langword="false"/></returns>
+    public static bool IsHangulIPFJungseong(this char c) => c is >= FirstIPFJungseong and <= LastIPFJungseong;
+
+    /// <summary>
+    /// 문자가 한글 첫가끝 코드 종성인지 여부
+    /// </summary>
+    /// <param name="c">문자</param>
+    /// <returns>문자가 한글 첫가끝 코드 종성이라면 <see langword="true"/>, 아니라면 <see langword="false"/></returns>
+    public static bool IsHangulIPFJongseong(this char c) => c is >= FirstIPFJongseong and <= LastIPFJongseong;
+
+    /// <summary>
     /// 이 한글 음절의 초성에 해당하는 <see cref="Hangul.Choseong"/> 값을 반환함
     /// </summary>
     /// <param name="hangulSyllable">한글 음절</param>
