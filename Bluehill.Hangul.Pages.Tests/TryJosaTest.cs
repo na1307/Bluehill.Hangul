@@ -24,11 +24,11 @@ public sealed class TryJosaTest : TestContext {
               <tbody>
                 <tr>
                   <td>EunNeun</td>
-                  <td>은(는)</td>
+                  <td>{HangulConstants.Eun_Neun}</td>
                 </tr>
                 <tr>
                   <td>IGa</td>
-                  <td>이(가)</td>
+                  <td>{HangulConstants.I_Ga}</td>
                 </tr>
                 <tr>
                   <td>I</td>
@@ -36,19 +36,19 @@ public sealed class TryJosaTest : TestContext {
                 </tr>
                 <tr>
                   <td>EulReul</td>
-                  <td>을(를)</td>
+                  <td>{HangulConstants.Eul_Reul}</td>
                 </tr>
                 <tr>
                   <td>GwaWa</td>
-                  <td>과(와)</td>
+                  <td>{HangulConstants.Gwa_Wa}</td>
                 </tr>
                 <tr>
                   <td>AYa</td>
-                  <td>아(야)</td>
+                  <td>{HangulConstants.A_Ya}</td>
                 </tr>
                 <tr>
                   <td>EuRo</td>
-                  <td>(으)로</td>
+                  <td>{HangulConstants.Eu_Ro}</td>
                 </tr>
               </tbody>
             </table>
