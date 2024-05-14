@@ -1,6 +1,4 @@
-﻿using Xunit.Sdk;
-
-namespace Bluehill.Hangul.Tests;
+﻿namespace Bluehill.Hangul.Tests;
 
 public sealed class JosaTest {
     private const string sagwa = "사과";

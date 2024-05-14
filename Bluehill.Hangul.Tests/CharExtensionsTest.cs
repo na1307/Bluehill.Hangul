@@ -2,68 +2,155 @@
 
 public sealed class CharExtensionsTest {
     private const char han = '한';
+    private const char mul = '물';
+    private const char sae = '새';
     private const char giyeok = 'ㄱ';
     private const char ae = 'ㅐ';
     private const char s = 's';
+    private const char one = '1';
+    private const char dollarSign = '$';
 
-    [Fact]
-    public void IsHangulTest() {
-        Assert.True(han.IsHangul());
-        Assert.True(giyeok.IsHangul());
-        Assert.True(ae.IsHangul());
-        Assert.False(s.IsHangul());
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    public void IsHangul_ReturnTrue(char input) {
+        Assert.True(input.IsHangul());
     }
 
-    [Fact]
-    public void IsHangulSyllableTest() {
-        Assert.True(han.IsHangulSyllable());
-        Assert.False(giyeok.IsHangulSyllable());
-        Assert.False(ae.IsHangulSyllable());
-        Assert.False(s.IsHangulSyllable());
+    [Theory]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangul_ReturnFalse(char input) {
+        Assert.False(input.IsHangul());
     }
 
-    [Fact]
-    public void IsHangulJamoTest() {
-        Assert.False(han.IsHangulJamo());
-        Assert.True(giyeok.IsHangulJamo());
-        Assert.True(ae.IsHangulJamo());
-        Assert.False(s.IsHangulJamo());
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    public void IsHangulSyllable_ReturnTrue(char input) {
+        Assert.True(input.IsHangulSyllable());
     }
 
-    [Fact]
-    public void IsHangulConsonantTest() {
-        Assert.False(han.IsHangulConsonant());
-        Assert.True(giyeok.IsHangulConsonant());
-        Assert.False(ae.IsHangulConsonant());
-        Assert.False(s.IsHangulConsonant());
+    [Theory]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulSyllable_ReturnFalse(char input) {
+        Assert.False(input.IsHangulSyllable());
     }
 
-    [Fact]
-    public void IsHangulVowelTest() {
-        Assert.False(han.IsHangulVowel());
-        Assert.False(giyeok.IsHangulVowel());
-        Assert.True(ae.IsHangulVowel());
-        Assert.False(s.IsHangulVowel());
+    [Theory]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    public void IsHangulJamo_ReturnTrue(char input) {
+        Assert.True(input.IsHangulJamo());
     }
 
-    [Fact]
-    public void ChoseongTest() {
-        Assert.Equal(Choseong.Hieut, han.Choseong());
-        Assert.Throws<ArgumentException>("c", () => giyeok.Choseong());
-        Assert.Throws<ArgumentException>("c", () => s.Choseong());
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulJamo_ReturnFalse(char input) {
+        Assert.False(input.IsHangulJamo());
     }
 
-    [Fact]
-    public void JungseongTest() {
-        Assert.Equal(Jungseong.A, han.Jungseong());
-        Assert.Throws<ArgumentException>("c", () => giyeok.Jungseong());
-        Assert.Throws<ArgumentException>("c", () => s.Jungseong());
+    [Theory]
+    [InlineData(giyeok)]
+    public void IsHangulConsonant_ReturnTrue(char input) {
+        Assert.True(input.IsHangulConsonant());
     }
 
-    [Fact]
-    public void JongseongTest() {
-        Assert.Equal(Jongseong.Nieun, han.Jongseong());
-        Assert.Throws<ArgumentException>("c", () => giyeok.Jongseong());
-        Assert.Throws<ArgumentException>("c", () => s.Jongseong());
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulConsonantTest(char input) {
+        Assert.False(input.IsHangulConsonant());
+    }
+
+    [Theory]
+    [InlineData(ae)]
+    public void IsHangulVowel_ReturnTrue(char input) {
+        Assert.True(input.IsHangulVowel());
+    }
+
+    [Theory]
+    [InlineData(han)]
+    [InlineData(mul)]
+    [InlineData(sae)]
+    [InlineData(giyeok)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void IsHangulVowel_ReturnFalse(char input) {
+        Assert.False(input.IsHangulVowel());
+    }
+
+    [Theory]
+    [InlineData(han, Choseong.Hieut)]
+    [InlineData(mul, Choseong.Mieum)]
+    [InlineData(sae, Choseong.Siot)]
+    public void Choseong_Equals(char input, Choseong expected) {
+        Assert.Equal(expected, input.Choseong());
+    }
+
+    [Theory]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void Choseong_ThrowsArgumentException(char input) {
+        Assert.Throws<ArgumentException>("c", () => input.Choseong());
+    }
+
+    [Theory]
+    [InlineData(han, Jungseong.A)]
+    [InlineData(mul, Jungseong.U)]
+    [InlineData(sae, Jungseong.Ae)]
+    public void Jungseong_Equals(char input, Jungseong expected) {
+        Assert.Equal(expected, input.Jungseong());
+    }
+
+    [Theory]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void Jngseong_ThrowsArgumentException(char input) {
+        Assert.Throws<ArgumentException>("c", () => input.Jungseong());
+    }
+
+    [Theory]
+    [InlineData(han, Jongseong.Nieun)]
+    [InlineData(mul, Jongseong.Rieul)]
+    [InlineData(sae, Jongseong.None)]
+    public void Jongseong_Equals(char input, Jongseong expected) {
+        Assert.Equal(expected, input.Jongseong());
+    }
+
+    [Theory]
+    [InlineData(giyeok)]
+    [InlineData(ae)]
+    [InlineData(s)]
+    [InlineData(one)]
+    [InlineData(dollarSign)]
+    public void Jongseong_ThrowsArgumentException(char input) {
+        Assert.Throws<ArgumentException>("c", () => input.Jungseong());
     }
 }
