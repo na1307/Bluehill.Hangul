@@ -1,23 +1,12 @@
 <Project>
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <WarningsAsErrors>Nullable</WarningsAsErrors>
-    <Authors>na1307</Authors>
-    <Company>Bluehill</Company>
     <Product>Bluehill.Hangul</Product>
-    <Copyright>Copyright © Bluehill 2024</Copyright>
-    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <PackageProjectUrl>https://na1307.github.io/Bluehill.Hangul</PackageProjectUrl>
     <PackageTags>hangul;josa;한글;조사;na1307;bluehill</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>https://na1307.github.io/Bluehill.Hangul/Changelog</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/na1307/Bluehill.Hangul</RepositoryUrl>
-    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
-    <EnableNETAnalyzers>True</EnableNETAnalyzers>
-    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
