@@ -1,26 +1,10 @@
-﻿@inherits LayoutComponentBase
+﻿@using Bluehill.Blazor.Layout
+@inherits LayoutComponentBase
 @inject IStringLocalizer<MainLayout> Loc
 @attribute [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
 
-<div class="page">
-    <main>
-        <div class="flex-wrapper">
-            <div class="top-row px-4">
-                <CultureSelector />
-                <NavLink href=".">@Loc["Home"]</NavLink>
-                <NavLink href="howtouse">@Loc["HowToUse"]</NavLink>
-                <NavLink href="tryjosa">@Loc["TryJosa"]</NavLink>
-                <NavLink href="trychar">@Loc["TryChar"]</NavLink>
-                <NavLink href="changelog">@Loc["ChangeLog"]</NavLink>
-            </div>
-
-            <article class="content px-4">
-                @Body
-            </article>
-
-            <div class="bottom-row px-4">
-                Copyright © Bluehill 2024
-            </div>
-        </div>
-    </main>
-</div>
+<CultureBluehillLayout HeadLinks="@([new(Loc["Home"], "."), new(Loc["TryJosa"], "tryjosa"), new(Loc["TryChar"], "trychar"), new(Loc["Changelog"], "changelog")])">
+    <Body>
+        @Body
+    </Body>
+</CultureBluehillLayout>

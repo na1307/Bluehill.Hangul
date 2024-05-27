@@ -4,6 +4,7 @@
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Bluehill.Blazor" />
     <PackageReference Include="HighlightBlazor" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" />
