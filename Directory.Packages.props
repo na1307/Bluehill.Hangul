@@ -16,6 +16,6 @@
     <PackageVersion Include="bunit" Version="1.28.9" />
   </ItemGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.4" />
+    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.5" />
   </ItemGroup>
 </Project>
