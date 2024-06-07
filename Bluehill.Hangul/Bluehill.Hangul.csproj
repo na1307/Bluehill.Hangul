@@ -9,7 +9,7 @@
     <Version>2.1-beta.1</Version>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
-    <NoWarn>$(NoWarn);0436</NoWarn>
+    <NoWarn>$(NoWarn);0436;CA1510</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="System.Diagnostics.CodeAnalysis" />

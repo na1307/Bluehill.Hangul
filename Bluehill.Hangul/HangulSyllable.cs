@@ -115,6 +115,20 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     public static HangulSyllable MaxValue { get; } = new(LastSyllable);
 
     /// <summary>
+    /// <paramref name="value"/>를 <see cref="HangulSyllable"/>로 변환
+    /// </summary>
+    /// <param name="value">한글 문자</param>
+    /// <returns><see cref="HangulSyllable"/></returns>
+    public static HangulSyllable FromChar(char value) => new(value);
+
+    /// <summary>
+    /// <paramref name="syllable"/>을 <see cref="char"/>로 변환
+    /// </summary>
+    /// <param name="syllable">한글 음절 문자</param>
+    /// <returns><see cref="char"/></returns>
+    public static char ToChar(HangulSyllable syllable) => syllable.Value;
+
+    /// <summary>
     /// 이 한글 음절의 초성에 대한 <see cref="Hangul.Choseong"/> 값
     /// </summary>
     public Choseong Choseong => IsValid ? (Choseong)((_Value - FirstSyllable) / 28 / 21) : throw new InvalidOperationException(invalidMessage);

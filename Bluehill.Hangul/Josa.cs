@@ -31,14 +31,16 @@ public static class Josa {
         }
 
         // 문자열이 비어 있으면 기본 조사를 반환
-        if (str == string.Empty) {
+        if (str.Length == 0) {
             return defaultJosa;
         }
 
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
-        if (!str[str.Length - 1].IsHangulSyllable()) return text + defaultJosa;
+        if (!str[str.Length - 1].IsHangulSyllable()) {
+            return text + defaultJosa;
+        }
 
         return text + (str[str.Length - 1].Jongseong() == Hangul.Jongseong.None ? noJongseong : jongseong);
     }
@@ -70,14 +72,16 @@ public static class Josa {
         }
 
         // 문자열이 비어 있으면 기본 조사를 반환
-        if (str == string.Empty) {
+        if (str.Length == 0) {
             return defaultJosa;
         }
 
         var text = !josaOnly ? str : null;
 
         // 마지막 글자가 한글 음절이 아니라면
-        if (!str[str.Length - 1].IsHangulSyllable()) return text + defaultJosa;
+        if (!str[str.Length - 1].IsHangulSyllable()) {
+            return text + defaultJosa;
+        }
 
         return text + (str[str.Length - 1].Jongseong() is Hangul.Jongseong.None or Hangul.Jongseong.Rieul ? rieul : noRieul);
     }

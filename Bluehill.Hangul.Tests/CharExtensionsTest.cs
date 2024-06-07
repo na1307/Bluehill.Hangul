@@ -267,15 +267,15 @@ public sealed class CharExtensionsTest {
 
     [Fact]
     public void ToCompatibilityJamo_TableTest() {
-        for (int choi = 0; choi <= LastIPFChoseong - FirstIPFChoseong; choi++) {
+        for (var choi = 0; choi <= LastIPFChoseong - FirstIPFChoseong; choi++) {
             Assert.Equal(Internal.Choseongs[choi], ((char)(FirstIPFChoseong + choi)).ToCompatibilityJamo());
         }
 
-        for (int jungi = 0; jungi <= LastIPFJungseong - FirstIPFJungseong; jungi++) {
+        for (var jungi = 0; jungi <= LastIPFJungseong - FirstIPFJungseong; jungi++) {
             Assert.Equal(Internal.Jungseongs[jungi], ((char)(FirstIPFJungseong + jungi)).ToCompatibilityJamo());
         }
 
-        for (int jongi = 0; jongi <= LastIPFJongseong - FirstIPFJongseong; jongi++) {
+        for (var jongi = 0; jongi <= LastIPFJongseong - FirstIPFJongseong; jongi++) {
             Assert.Equal(Internal.Jongseongs[jongi + 1], ((char)(FirstIPFJongseong + jongi)).ToCompatibilityJamo());
         }
     }
