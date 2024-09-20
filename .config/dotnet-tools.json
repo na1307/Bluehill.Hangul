@@ -3,16 +3,18 @@
   "isRoot": true,
   "tools": {
     "dotnet-sonarscanner": {
-      "version": "6.2.0",
+      "version": "8.0.3",
       "commands": [
         "dotnet-sonarscanner"
-      ]
+      ],
+      "rollForward": false
     },
     "dotnet-coverage": {
-      "version": "17.11.3",
+      "version": "17.12.4",
       "commands": [
         "dotnet-coverage"
-      ]
+      ],
+      "rollForward": false
     }
   }
 }
