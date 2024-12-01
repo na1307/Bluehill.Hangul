@@ -251,9 +251,6 @@ dotnet_code_quality.CA1028.api_surface = all
 dotnet_diagnostic.CA1030.severity = warning
 dotnet_code_quality.CA1030.api_surface = all
 
-# Do not catch general exception types
-dotnet_diagnostic.CA1031.severity = warning
-
 # Implement standard exception constructors
 dotnet_diagnostic.CA1032.severity = warning
 
@@ -735,7 +732,7 @@ tab_width = 4
 
 # 새 줄 기본 설정
 end_of_line = crlf
-insert_final_newline = false
+insert_final_newline = true
 
 #### .NET 코딩 규칙 ####
 
