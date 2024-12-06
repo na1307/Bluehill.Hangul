@@ -5,6 +5,8 @@
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
     <IsPackable>false</IsPackable>
     <NoWarn>$(NoWarn);CA1707</NoWarn>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="Xunit" />
