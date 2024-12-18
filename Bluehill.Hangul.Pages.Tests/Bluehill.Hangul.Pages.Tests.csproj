@@ -6,21 +6,22 @@
     <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
   <ItemGroup>
-    <Using Include="Bluehill.Hangul.Pages.Pages"/>
+    <Using Include="Bluehill.Hangul.Pages.Pages" />
     <Using Include="Bunit" />
     <Using Include="Bunit.TestDoubles" />
     <Using Include="Microsoft.Extensions.DependencyInjection" />
-    <Using Include="Microsoft.Extensions.Localization"/>
+    <Using Include="Microsoft.Extensions.Localization" />
+    <Using Include="Bunit.TestContext" Alias="TestContext" />
     <Using Include="Xunit" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="bunit" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>
+    <PackageReference Include="xunit.v3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bluehill.Hangul.Pages\Bluehill.Hangul.Pages.csproj" />
