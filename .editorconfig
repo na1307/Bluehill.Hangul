@@ -930,3 +930,4 @@ dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
 # ReSharper properties
 resharper_wrap_object_and_collection_initializer_style = chop_always
+resharper_member_can_be_private_global_highlighting = none

@@ -4,9 +4,28 @@
     "net9.0": {
       "Bluehill.Blazor": {
         "type": "Direct",
-        "requested": "[0.7.0, )",
-        "resolved": "0.7.0",
-        "contentHash": "zzep9IlnAaty+q1VWUi+YJo1KTgH7OJcvwFPaeopQvR7pgie6ddd+zXT4bwq9Su/wzBYOqMrmWnBc21Pn41LpQ=="
+        "requested": "[0.8.1, )",
+        "resolved": "0.8.1",
+        "contentHash": "UlaWDS0MH66tq0vcje85eG5HBEHPoQ4vYeg+by54j4/dEYRaIYl5wpVnXoMUCYuCrH7Oe/hwC1aueo98PztHOw=="
+      },
+      "Bluehill.Blazor.Culture.WebAssembly": {
+        "type": "Direct",
+        "requested": "[0.8.1, )",
+        "resolved": "0.8.1",
+        "contentHash": "OA3CGRjkNd7H1BxWT03Fz57QaPgIMB7MXf/cYedS5dhPwZgZA+wZrvyjrbH42+Hv+PkTT974xDJ7nkdXZSVaxA==",
+        "dependencies": {
+          "Bluehill.Blazor": "0.8.1"
+        }
+      },
+      "Bluehill.Blazor.GHPage": {
+        "type": "Direct",
+        "requested": "[0.8.1, )",
+        "resolved": "0.8.1",
+        "contentHash": "LJatDiTSpBMHlKdG05CCCumPTVHAwg9q2o1lEBZ2lqBGPsH7tqMvMggPwtBVT/cP0auLae9Lo+LjAphfNWPykw==",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "8.0.11",
+          "Microsoft.AspNetCore.Components.WebAssembly": "8.0.11"
+        }
       },
       "Bluehill.Imports": {
         "type": "Direct",
