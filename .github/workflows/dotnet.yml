@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     name: .NET
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
       OUTPUT_PATH: output
