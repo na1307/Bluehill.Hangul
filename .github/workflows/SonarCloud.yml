@@ -26,8 +26,6 @@ jobs:
           distribution: temurin
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
       - name: Cache NuGet
         uses: actions/cache@v4
         with:
@@ -44,7 +42,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore --no-incremental -p:CreateVsixContainer=false -p:DeployExtension=false
+        run: dotnet build --no-restore --no-incremental
       - name: Test
         run: dotnet coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
       - name: SonarScanner End

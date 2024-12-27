@@ -3,8 +3,11 @@ name: Deploy GitHub Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
-    paths-ignore: ["Bluehill.Hangul.Tests/**", "Bluehill.Hangul.Pages.Tests/**"]
+    branches: 
+      - main
+    paths-ignore: 
+      - "Bluehill.Hangul.Tests/**"
+      - "Bluehill.Hangul.Pages.Tests/**"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,8 +35,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
       - name: Cache NuGet
         uses: actions/cache@v4
         with:
