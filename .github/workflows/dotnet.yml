@@ -47,7 +47,30 @@ jobs:
         name: ${{ github.event.repository.name }}.nupkg
         path: ${{ env.OUTPUT_PATH }}/*.*nupkg
 
-  publish:
+  publish-gpr:
+    name: Publish to GitHub Packages Registry
+    if: ${{ github.event_name == 'push' }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download Package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ github.event.repository.name }}.nupkg
+      - name: Publish to GitHub Package Registry
+        run: 'dotnet nuget push "*.nupkg" --skip-duplicate'
+
+  publish-nuget:
     name: Publish to NuGet
     if: ${{ github.event_name == 'release' }}
     needs: build
