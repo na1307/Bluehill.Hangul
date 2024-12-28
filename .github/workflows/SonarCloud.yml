@@ -33,7 +33,7 @@ jobs:
         uses: na1307/dotnet-sonarscanner-cloud@main
         with:
           sonar-token: ${{ secrets.SONAR_TOKEN }}
-          additional-properties: /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          additional-properties: -d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
           build-commands: |
             dotnet restore
             dotnet build --no-restore --no-incremental
