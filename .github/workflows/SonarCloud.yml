@@ -19,11 +19,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: temurin
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
       - name: Cache NuGet
@@ -34,19 +29,12 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar-nuget-
       - name: Install Tools
         run: dotnet tool restore
-      - name: SonarScanner Begin
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner begin /k:"na1307_Bluehill.Hangul" /o:"na1307" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml /d:sonar.scanner.skipJreProvisioning=true
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore --no-incremental
-      - name: Test
-        run: dotnet coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
-      - name: SonarScanner End
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      - name: SonarScanner for .NET - Cloud
+        uses: na1307/dotnet-sonarscanner-cloud@main
+        with:
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
+          additional-properties: /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+          build-commands: |
+            dotnet restore
+            dotnet build --no-restore --no-incremental
+            dotnet coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
