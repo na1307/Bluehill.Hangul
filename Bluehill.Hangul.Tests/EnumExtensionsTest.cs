@@ -3,6 +3,7 @@
 public sealed class EnumExtensionsTest {
     [Fact]
     public void ToJamoTest1() {
+        throw new();
         Assert.Equal('ㅇ', Choseong.Ieung.ToJamo());
     }
 
