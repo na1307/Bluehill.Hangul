@@ -21,8 +21,11 @@ jobs:
     env:
       NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
       OUTPUT_PATH: output
+      NUGETPROJ: Bluehill.Hangul/Bluehill.Hangul.csproj
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
     - name: Cache NuGet
@@ -31,6 +34,26 @@ jobs:
         path: ${{ github.workspace }}/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('Directory.Packages.props') }} #hash of project files
         restore-keys: ${{ runner.os }}-nuget-
+    - name: Bump revision
+      id: bump
+      if: github.event_name == 'push'
+      uses: vers-one/dotnet-project-version-updater@v1.7
+      with:
+        file: ${{ env.NUGETPROJ }}
+        version: bump-revision
+        tags: csproj.Version, csproj.FileVersion
+    - name: Describe
+      id: describe
+      if: github.event_name == 'push'
+      shell: powershell
+      run: echo "InfoVersion=$($(git describe --tags --long) -replace $(git describe --tags --abbrev=0),'${{ steps.bump.outputs.newVersion }}')" >> $env:GITHUB_OUTPUT
+    - name: Set Version
+      if: github.event_name == 'push'
+      uses: vers-one/dotnet-project-version-updater@v1.7
+      with:
+        file: ${{ env.NUGETPROJ }}
+        version: ${{ steps.describe.outputs.InfoVersion }}
+        tags: csproj.Version
     - name: Restore dependencies
       run: dotnet restore
     - name: Build (Debug)
@@ -49,7 +72,7 @@ jobs:
 
   publish-gpr:
     name: Publish to GitHub Packages Registry
-    if: ${{ github.event_name == 'push' }}
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -72,7 +95,7 @@ jobs:
 
   publish-nuget:
     name: Publish to NuGet
-    if: ${{ github.event_name == 'release' }}
+    if: github.event_name == 'release'
     needs: build
     runs-on: ubuntu-latest
     steps:
