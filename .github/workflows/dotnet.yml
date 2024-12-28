@@ -34,6 +34,25 @@ jobs:
         path: ${{ github.workspace }}/.nuget/packages
         key: ${{ runner.os }}-nuget-${{ hashFiles('Directory.Packages.props') }} #hash of project files
         restore-keys: ${{ runner.os }}-nuget-
+    - name: Install Tools
+      run: dotnet tool restore
+    - name: Restore dependencies (Debug)
+      run: dotnet restore
+    - name: Build (Debug)
+      if: github.event_name == 'release' || github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+      run: dotnet build --no-restore
+    - name: Test (Debug)
+      if: github.event_name == 'release' || github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+      run: dotnet test --no-build --verbosity normal
+    - name: SonarScanner for .NET
+      if: github.event_name == 'push' || github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+      uses: na1307/dotnet-sonarscanner-cloud@v1
+      with:
+        sonar-token: ${{ secrets.SONAR_TOKEN }}
+        additional-properties: -d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml
+        build-commands: |
+          dotnet build --no-restore --no-incremental
+          dotnet coverage collect 'dotnet test --no-build --verbosity normal' -f xml  -o 'coverage.xml'
     - name: Bump revision
       id: bump
       if: github.event_name == 'push'
@@ -54,12 +73,8 @@ jobs:
         file: ${{ env.NUGETPROJ }}
         version: ${{ steps.describe.outputs.InfoVersion }}
         tags: csproj.Version
-    - name: Restore dependencies
+    - name: Restore dependencies (Release)
       run: dotnet restore
-    - name: Build (Debug)
-      run: dotnet build --no-restore
-    - name: Test (Debug)
-      run: dotnet test --no-build --verbosity normal
     - name: Build (Release)
       run: dotnet build --configuration Release --no-restore
     - name: Pack (Release)
@@ -90,7 +105,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: ${{ github.event.repository.name }}.nupkg
-      - name: Publish to GitHub Package Registry
+      - name: Publish to GitHub Packages Registry
         run: 'dotnet nuget push "*.nupkg" --skip-duplicate'
 
   publish-nuget:
