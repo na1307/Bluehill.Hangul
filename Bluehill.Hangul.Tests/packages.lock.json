@@ -4,14 +4,13 @@
     "net9.0": {
       "Bluehill.Imports": {
         "type": "Direct",
-        "requested": "[1.0.8, )",
-        "resolved": "1.0.8",
-        "contentHash": "XXpaWibao1/kTRUBTpJjfxvqBWCcEeXPZqWkgclbYzxpV0wAsBSddrlaI2LTzQyLvD6n9bXcGQJ92of8MLEdjQ==",
+        "requested": "[1.0.9, )",
+        "resolved": "1.0.9",
+        "contentHash": "r3ePwQMhwbAPM86ScTTcSZ2bq/DM8MkCnyYEY0biz5CXB5Enu/Mmf5hVZMd+/lZeOwPFQq3hNAm/dg0bDFpHmA==",
         "dependencies": {
-          "Bluehill.Analyzers": "1.1.0",
+          "Bluehill.Analyzers": "1.2.0",
           "Roslynator.Analyzers": "4.12.10",
-          "Roslynator.Formatting.Analyzers": "4.12.10",
-          "SonarAnalyzer.CSharp": "10.4.0.108396"
+          "Roslynator.Formatting.Analyzers": "4.12.10"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -43,8 +42,8 @@
       },
       "Bluehill.Analyzers": {
         "type": "Transitive",
-        "resolved": "1.1.0",
-        "contentHash": "fO4oXhbdbZ8AMgDc6OXPDSztBojYRC3cbIeq8O/Zdw8IyufVQH6l3i6Ba6WcUQuVL3kn/eMV01L0OITeEI4ArQ=="
+        "resolved": "1.2.0",
+        "contentHash": "vsLjAh+2Fv7Yij7sqFvkFxf5lRv4R+FqbRIl8CGCiNSzxFywisYIeueJiQp5wp7nvYunJy9bJ0YS0EH6PbEKJQ=="
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
@@ -108,11 +107,6 @@
         "type": "Transitive",
         "resolved": "4.12.10",
         "contentHash": "Yz0OhQtuECTPBMoURxcv1XKgquVpUcUOpRGac8tormJSJzbMYK8qvVSvjIvQkQOrfYPLFa8aak5200BEAq/X9Q=="
-      },
-      "SonarAnalyzer.CSharp": {
-        "type": "Transitive",
-        "resolved": "10.4.0.108396",
-        "contentHash": "xGcLZ+dvkVuBbd3sjPur9X+1owSL/iDoxVFJLhMx3/vq1fmoKM2fwvrZ8ReAas6l715GJ/dWU2ckwlrRVopmbg=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
