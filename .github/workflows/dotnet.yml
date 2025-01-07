@@ -45,7 +45,7 @@ jobs:
     - name: Describe
       id: describe
       if: github.event_name == 'push'
-      shell: powershell
+      shell: pwsh
       run: echo "InfoVersion=$($(git describe --tags --long) -replace $(git describe --tags --abbrev=0),'${{ steps.bump.outputs.newVersion }}')" >> $env:GITHUB_OUTPUT
     - name: Set Version
       if: github.event_name == 'push'
@@ -98,6 +98,8 @@ jobs:
     if: github.event_name == 'release'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Setup .NET

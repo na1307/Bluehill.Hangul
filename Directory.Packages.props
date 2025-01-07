@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageVersion Include="Bluehill.Blazor" Version="0.8.1" />
     <PackageVersion Include="Bluehill.Blazor.Culture.WebAssembly" Version="0.8.1" />
-    <PackageVersion Include="Bluehill.Blazor.GHPage" Version="0.8.1" />
+    <PackageVersion Include="Bluehill.Blazor.GHPages" Version="1.0.1" />
     <PackageVersion Include="HighlightBlazor" Version="0.1.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" />
@@ -18,6 +18,6 @@
     <PackageVersion Include="xunit.v3" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.8" />
+    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.9" />
   </ItemGroup>
 </Project>
