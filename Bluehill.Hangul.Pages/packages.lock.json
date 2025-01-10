@@ -19,12 +19,9 @@
       },
       "Bluehill.Blazor.GHPages": {
         "type": "Direct",
-        "requested": "[1.0.1, )",
-        "resolved": "1.0.1",
-        "contentHash": "njViK2Unpj0WpcmnNSI5AmrBDh+tZIyN7SCdLFucMUaSziwepSpPelD/t6kHX8z3A90ZKZOn7WN3RiGq4s2/7g==",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "8.0.11"
-        }
+        "requested": "[1.0.2, )",
+        "resolved": "1.0.2",
+        "contentHash": "bTChJ7ylLxNuz5tdGloCPYnx6906FKax3ea1g7Ts5Ds0gkR/jtDe7XqM2KOX7/KsitLu+YxqKs5zvJrcCaWI2w=="
       },
       "Bluehill.Imports": {
         "type": "Direct",
