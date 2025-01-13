@@ -46,7 +46,7 @@ jobs:
       id: describe
       if: github.event_name == 'push'
       shell: pwsh
-      run: echo "InfoVersion=$($(git describe --tags --long) -replace $(git describe --tags --abbrev=0),'${{ steps.bump.outputs.newVersion }}')" >> $env:GITHUB_OUTPUT
+      run: echo "InfoVersion=$($(git describe --tags --long) -replace $(git describe --tags --abbrev=0),"${{ steps.bump.outputs.newVersion }}-from.$(git describe --tags --abbrev=0)")" >> $env:GITHUB_OUTPUT
     - name: Set Version
       if: github.event_name == 'push'
       uses: vers-one/dotnet-project-version-updater@v1.7
