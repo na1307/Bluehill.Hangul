@@ -15,12 +15,12 @@
       },
       "bunit": {
         "type": "Direct",
-        "requested": "[1.37.7, )",
-        "resolved": "1.37.7",
-        "contentHash": "QPqsT9M08Rx/Av0TYEioECrX5OggAwN6+QvKAcUMRg6/p9oNi+2wjl/zxSf9Sz7ZI4rb26Je7jdd+6ErfyakbQ==",
+        "requested": "[1.38.5, )",
+        "resolved": "1.38.5",
+        "contentHash": "QzUM6j3vX1cxGB79SaWOWVhP+fr0vrU/UYjjZdeuEIi59DMwAY35fz+ZPwW+z1AEoBaiMCje3BrBsjuS44y8cQ==",
         "dependencies": {
-          "bunit.core": "1.37.7",
-          "bunit.web": "1.37.7"
+          "bunit.core": "1.38.5",
+          "bunit.web": "1.38.5"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -52,11 +52,8 @@
       },
       "AngleSharp": {
         "type": "Transitive",
-        "resolved": "1.1.2",
-        "contentHash": "aRFpAqixbuj1Vmqy2hsWPF0PJygo1SfjvmpBvVWZv6i+/u+C/L4wDdwFIzyCGUbjqr61NsZdPNPqDE8wlmG2qA==",
-        "dependencies": {
-          "System.Text.Encoding.CodePages": "8.0.0"
-        }
+        "resolved": "1.2.0",
+        "contentHash": "uF/PzSCVcb+b2nqVvHZbOqexoJ9R6QLjonugPf0PQl+0h7YKaFZeXyspctbHe5HGlx7/Iuk5BErtk+t63ac/ZA=="
       },
       "AngleSharp.Css": {
         "type": "Transitive",
@@ -82,8 +79,8 @@
       },
       "bunit.core": {
         "type": "Transitive",
-        "resolved": "1.37.7",
-        "contentHash": "MtBMNvEngLm6m/X7KqgIA1TFY/4hqUQxAABTmZG7TCh3Kx948/7aXuvxk2SuSjpMp4oUiY/ih2y3Kqieq1qZZw==",
+        "resolved": "1.38.5",
+        "contentHash": "1tTNaTk2PIibXW/FohOESnIX7qt9HIYqdhJfzHiTGZcX9DQyoEkgqsstHKq/S3clZJdRU5wHDZA3nfhP7uSkpw==",
         "dependencies": {
           "Microsoft.AspNetCore.Components": "9.0.0",
           "Microsoft.Extensions.Logging": "9.0.0",
@@ -92,10 +89,10 @@
       },
       "bunit.web": {
         "type": "Transitive",
-        "resolved": "1.37.7",
-        "contentHash": "T0hwjDUT6tyN5vtDigkdJ7Yu5IbePljokth6tfh1fXzwgmNAV6Z0VaaVdZCZXZ2BlD0dM/erulJbBiJLMSzUgw==",
+        "resolved": "1.38.5",
+        "contentHash": "uruHfxJrP5WTttKDv7V2+T9XaPgZExHLLIzqgl3n/Z45lfbFStfbmpIL+mNBwwItQKhpjHWDWjhlU0Vy9t6jvw==",
         "dependencies": {
-          "AngleSharp": "1.1.2",
+          "AngleSharp": "1.2.0",
           "AngleSharp.Css": "1.0.0-beta.144",
           "AngleSharp.Diffing": "1.0.0",
           "Microsoft.AspNetCore.Components": "9.0.0",
@@ -108,7 +105,7 @@
           "Microsoft.Extensions.Logging": "9.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
           "System.Text.Json": "9.0.0",
-          "bunit.core": "1.37.7"
+          "bunit.core": "1.38.5"
         }
       },
       "Microsoft.AspNetCore.Authorization": {
@@ -400,11 +397,6 @@
         "resolved": "1.6.0",
         "contentHash": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ=="
       },
-      "System.Text.Encoding.CodePages": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "OZIsVplFGaVY90G2SbpgU7EnCoOO5pw1t4ic21dBF3/1omrJFpAGoNAVpPyMVOC90/hvgkGG3VFqR13YgZMQfg=="
-      },
       "System.Text.Json": {
         "type": "Transitive",
         "resolved": "9.0.0",
@@ -474,7 +466,7 @@
           "Bluehill.Blazor": "[0.9.0, )",
           "Bluehill.Blazor.Culture.WebAssembly": "[0.9.0, )",
           "Bluehill.Blazor.GHPages": "[1.0.2, )",
-          "Bluehill.Hangul": "[2.1.0, )",
+          "Bluehill.Hangul": "[2.1.1, )",
           "HighlightBlazor": "[0.1.10, )",
           "Microsoft.AspNetCore.Components.WebAssembly": "[9.0.0, )",
           "Microsoft.AspNetCore.Components.WebAssembly.DevServer": "[9.0.0, )",
