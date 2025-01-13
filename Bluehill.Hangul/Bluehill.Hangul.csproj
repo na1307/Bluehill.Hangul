@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net20;net35;netstandard2.1;net7.0</TargetFrameworks>
+    <TargetFrameworks>net20;net35;netstandard2.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>한글 관련 라이브러리</Description>
     <AssemblyVersion>2</AssemblyVersion>
-    <FileVersion>2.1.0</FileVersion>
-    <Version>2.1</Version>
+    <FileVersion>2.1.1</FileVersion>
+    <Version>2.1.1</Version>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
     <NoWarn>$(NoWarn);0436;CA1510;IDE0056</NoWarn>
@@ -15,14 +15,8 @@
     <Using Include="System.Diagnostics.CodeAnalysis" />
     <Using Include="Bluehill.Hangul.HangulConstants" Static="true" />
     <Using Include="Bluehill.Hangul.Internal" Static="true" />
-    <Using Remove="System.Linq" />
-    <Using Remove="System.Net.Http" />
-    <Using Remove="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <AssemblyAttribute Include="System.CLSCompliantAttribute">
-      <_Parameter1>true</_Parameter1>
-    </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
       <_Parameter1>Bluehill.Hangul.Tests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100b9413eeb9524e808bd9bf850efe059b9d491fd37de4f1828230ca2a5984c3bb5210770aaeb06eb7bad42b5dc051a65677e874db5e7f8743ddf189a922dd596c3b4aab19103f6992dabc281e2acbd8b482b0ffc8895c1675229847ca9ef17e3025e40a14c86e5125f3ac67ea3a08012071dc42d70c4db00af40dfbe805036a2b8</_Parameter1>
     </AssemblyAttribute>

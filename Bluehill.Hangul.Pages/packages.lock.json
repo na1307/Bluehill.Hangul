@@ -4,35 +4,32 @@
     "net9.0": {
       "Bluehill.Blazor": {
         "type": "Direct",
-        "requested": "[0.8.1, )",
-        "resolved": "0.8.1",
-        "contentHash": "UlaWDS0MH66tq0vcje85eG5HBEHPoQ4vYeg+by54j4/dEYRaIYl5wpVnXoMUCYuCrH7Oe/hwC1aueo98PztHOw=="
+        "requested": "[0.9.0, )",
+        "resolved": "0.9.0",
+        "contentHash": "ze8fchl63EqohDUcMqKew94lf/pqMDVLOr5K23rUCjP+xc4XrQ1ZWYNAavEC0aB57fxQ6HXgO5mhlEFZNFtAyw=="
       },
       "Bluehill.Blazor.Culture.WebAssembly": {
         "type": "Direct",
-        "requested": "[0.8.1, )",
-        "resolved": "0.8.1",
-        "contentHash": "OA3CGRjkNd7H1BxWT03Fz57QaPgIMB7MXf/cYedS5dhPwZgZA+wZrvyjrbH42+Hv+PkTT974xDJ7nkdXZSVaxA==",
+        "requested": "[0.9.0, )",
+        "resolved": "0.9.0",
+        "contentHash": "HUe7sCSXmWHRr3+Ck7wha+p4yvbXK6ookuL+MBZy4XBA97mS35+Y+t6nOurHHU8oyJNJulZeNefLRYFI/uST2A==",
         "dependencies": {
-          "Bluehill.Blazor": "0.8.1"
+          "Bluehill.Blazor": "0.9.0"
         }
       },
       "Bluehill.Blazor.GHPages": {
         "type": "Direct",
-        "requested": "[1.0.1, )",
-        "resolved": "1.0.1",
-        "contentHash": "njViK2Unpj0WpcmnNSI5AmrBDh+tZIyN7SCdLFucMUaSziwepSpPelD/t6kHX8z3A90ZKZOn7WN3RiGq4s2/7g==",
-        "dependencies": {
-          "Microsoft.AspNetCore.Components.WebAssembly": "8.0.11"
-        }
+        "requested": "[1.0.2, )",
+        "resolved": "1.0.2",
+        "contentHash": "bTChJ7ylLxNuz5tdGloCPYnx6906FKax3ea1g7Ts5Ds0gkR/jtDe7XqM2KOX7/KsitLu+YxqKs5zvJrcCaWI2w=="
       },
       "Bluehill.Imports": {
         "type": "Direct",
-        "requested": "[1.0.9, )",
-        "resolved": "1.0.9",
-        "contentHash": "r3ePwQMhwbAPM86ScTTcSZ2bq/DM8MkCnyYEY0biz5CXB5Enu/Mmf5hVZMd+/lZeOwPFQq3hNAm/dg0bDFpHmA==",
+        "requested": "[1.0.11, )",
+        "resolved": "1.0.11",
+        "contentHash": "fh54FR1Ax9eC87diV3EDtptWeIvQittYEzoleVx69jPHvgpVngHh6nMPxuubiCc8SFW5bdpg1zzOHQue2Gg0kg==",
         "dependencies": {
-          "Bluehill.Analyzers": "1.2.0",
+          "Bluehill.Analyzers": "1.4.0",
           "Roslynator.Analyzers": "4.12.10",
           "Roslynator.Formatting.Analyzers": "4.12.10"
         }
@@ -92,8 +89,8 @@
       },
       "Bluehill.Analyzers": {
         "type": "Transitive",
-        "resolved": "1.2.0",
-        "contentHash": "vsLjAh+2Fv7Yij7sqFvkFxf5lRv4R+FqbRIl8CGCiNSzxFywisYIeueJiQp5wp7nvYunJy9bJ0YS0EH6PbEKJQ=="
+        "resolved": "1.4.0",
+        "contentHash": "uo+9s0ex8bP1QmdPiQKgliiznkbteqM+XWBGFDexNsOaDEQ+YT9GhGCn5qvfr2c5xLscop6kgPBZGSROeG3Xcw=="
       },
       "Microsoft.AspNetCore.Authorization": {
         "type": "Transitive",
