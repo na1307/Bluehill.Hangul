@@ -9,9 +9,9 @@
     <PackageVersion Include="Bluehill.Blazor.Culture.WebAssembly" Version="0.9.0" />
     <PackageVersion Include="Bluehill.Blazor.GHPages" Version="1.0.2" />
     <PackageVersion Include="HighlightBlazor" Version="0.1.10" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="9.0.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.1" />
     <PackageVersion Include="bunit" Version="1.38.5" />
