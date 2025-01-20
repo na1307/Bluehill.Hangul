@@ -4,13 +4,15 @@
     "net9.0": {
       "Bluehill.Imports": {
         "type": "Direct",
-        "requested": "[1.0.11, )",
-        "resolved": "1.0.11",
-        "contentHash": "fh54FR1Ax9eC87diV3EDtptWeIvQittYEzoleVx69jPHvgpVngHh6nMPxuubiCc8SFW5bdpg1zzOHQue2Gg0kg==",
+        "requested": "[1.0.13, )",
+        "resolved": "1.0.13",
+        "contentHash": "7pXjYoVOYdeLnv+gghUcDLqx/wdVb8MX/gcrKVgKa9acykOv2VFyXnwu4xcugmblg6sDdf6dQAgF6ZWoR65+bg==",
         "dependencies": {
-          "Bluehill.Analyzers": "1.4.0",
+          "Bluehill.Analyzers": "1.5.1",
           "Roslynator.Analyzers": "4.12.10",
-          "Roslynator.Formatting.Analyzers": "4.12.10"
+          "Roslynator.Formatting.Analyzers": "4.12.10",
+          "SonarAnalyzer.CSharp": "10.5.0.109200",
+          "StyleCop.Analyzers": "1.2.0-beta.556"
         }
       },
       "Microsoft.NET.Test.Sdk": {
@@ -42,8 +44,8 @@
       },
       "Bluehill.Analyzers": {
         "type": "Transitive",
-        "resolved": "1.4.0",
-        "contentHash": "uo+9s0ex8bP1QmdPiQKgliiznkbteqM+XWBGFDexNsOaDEQ+YT9GhGCn5qvfr2c5xLscop6kgPBZGSROeG3Xcw=="
+        "resolved": "1.5.1",
+        "contentHash": "zXPdIKbT283BaKIEsqRbf6B3NhqKhRLq4gbh+KI8Q7CxVYtRbpJXJhJ5CmmfUsztX6DrIIddRHTO+I3IX6fO6Q=="
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
@@ -107,6 +109,24 @@
         "type": "Transitive",
         "resolved": "4.12.10",
         "contentHash": "Yz0OhQtuECTPBMoURxcv1XKgquVpUcUOpRGac8tormJSJzbMYK8qvVSvjIvQkQOrfYPLFa8aak5200BEAq/X9Q=="
+      },
+      "SonarAnalyzer.CSharp": {
+        "type": "Transitive",
+        "resolved": "10.5.0.109200",
+        "contentHash": "yS8uepqf+HwSEZtkJR7O4siqfyGKX4Lu7mIB6TTppy59czq7qkFjZ+fB7NTRZg8a/Pu7tvwVhpEMcxUTiQZmSw=="
+      },
+      "StyleCop.Analyzers": {
+        "type": "Transitive",
+        "resolved": "1.2.0-beta.556",
+        "contentHash": "llRPgmA1fhC0I0QyFLEcjvtM2239QzKr/tcnbsjArLMJxJlu0AA5G7Fft0OI30pHF3MW63Gf4aSSsjc5m82J1Q==",
+        "dependencies": {
+          "StyleCop.Analyzers.Unstable": "1.2.0.556"
+        }
+      },
+      "StyleCop.Analyzers.Unstable": {
+        "type": "Transitive",
+        "resolved": "1.2.0.556",
+        "contentHash": "zvn9Mqs/ox/83cpYPignI8hJEM2A93s2HkHs8HYMOAQW0PkampyoErAiIyKxgTLqbbad29HX/shv/6LGSjPJNQ=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
