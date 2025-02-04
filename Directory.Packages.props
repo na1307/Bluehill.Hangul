@@ -18,6 +18,6 @@
     <PackageVersion Include="xunit.v3" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.11" />
+    <GlobalPackageReference Include="Bluehill.Imports" Version="1.0.14" />
   </ItemGroup>
 </Project>
