@@ -65,7 +65,7 @@ jobs:
       - name: Pack (Release)
         run: dotnet pack --configuration Release --no-build --output ${{ env.OUTPUT_PATH }}
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ github.event.repository.name }}.nupkg
           path: ${{ env.OUTPUT_PATH }}/*.*nupkg
