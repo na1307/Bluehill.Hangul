@@ -87,7 +87,7 @@ jobs:
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download Package artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: ${{ github.event.repository.name }}.nupkg
       - name: Publish to GitHub Package Registry
@@ -105,7 +105,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
       - name: Download Package artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: ${{ github.event.repository.name }}.nupkg
       - name: Upload Release Assets
