@@ -23,7 +23,7 @@ jobs:
       OUTPUT_PATH: output
       NUGETPROJ: Directory.Build.props
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup .NET
@@ -79,7 +79,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
@@ -101,7 +101,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
       - name: Download Package artifact
