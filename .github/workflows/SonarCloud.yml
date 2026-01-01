@@ -22,7 +22,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
       - name: Cache NuGet
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ github.workspace }}/.nuget/packages
           key: ${{ runner.os }}-sonar-nuget-${{ hashFiles('global.json', 'Directory.Packages.props', '.config/dotnet-tools.json') }} #hash of project files
