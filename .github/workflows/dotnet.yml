@@ -23,13 +23,13 @@ jobs:
       OUTPUT_PATH: output
       NUGETPROJ: Directory.Build.props
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
       - name: Cache NuGet
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ github.workspace }}/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('global.json', 'Directory.Packages.props') }} #hash of project files
@@ -37,7 +37,7 @@ jobs:
       - name: Bump revision
         id: bump
         if: github.event_name == 'push'
-        uses: vers-one/dotnet-project-version-updater@v1.7
+        uses: vers-one/dotnet-project-version-updater@v1.8
         with:
           file: ${{ env.NUGETPROJ }}
           version: bump-revision
@@ -49,7 +49,7 @@ jobs:
         run: echo "InfoVersion=$($(git describe --tags --long) -replace $(git describe --tags --abbrev=0),"${{ steps.bump.outputs.newVersion }}-from.$(git describe --tags --abbrev=0)")" >> $env:GITHUB_OUTPUT
       - name: Set Version
         if: github.event_name == 'push'
-        uses: vers-one/dotnet-project-version-updater@v1.7
+        uses: vers-one/dotnet-project-version-updater@v1.8
         with:
           file: ${{ env.NUGETPROJ }}
           version: ${{ steps.describe.outputs.InfoVersion }}
@@ -65,7 +65,7 @@ jobs:
       - name: Pack (Release)
         run: dotnet pack --configuration Release --no-build --output ${{ env.OUTPUT_PATH }}
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ github.event.repository.name }}.nupkg
           path: ${{ env.OUTPUT_PATH }}/*.*nupkg
@@ -79,7 +79,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
         with:
@@ -87,7 +87,7 @@ jobs:
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download Package artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: ${{ github.event.repository.name }}.nupkg
       - name: Publish to GitHub Package Registry
@@ -101,15 +101,15 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
       - name: Download Package artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: ${{ github.event.repository.name }}.nupkg
       - name: Upload Release Assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: "*.nupkg"
       - name: Publish to Nuget
