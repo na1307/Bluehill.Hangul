@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <Sdk Name="Bluehill.MSBuild.Sdk" />
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <NoWarn>$(NoWarn);SA1600</NoWarn>
     <IsPackable>false</IsPackable>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="Bluehill.Hangul.Pages.Pages" />
@@ -11,8 +12,10 @@
     <Using Include="Bunit.TestDoubles" />
     <Using Include="Microsoft.Extensions.DependencyInjection" />
     <Using Include="Microsoft.Extensions.Localization" />
-    <Using Include="Bunit.TestContext" Alias="TestContext" />
     <Using Include="Xunit" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bluehill.Hangul.Pages\Bluehill.Hangul.Pages.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="bunit" />
@@ -22,8 +25,5 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       </PackageReference>
     <PackageReference Include="xunit.v3" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bluehill.Hangul.Pages\Bluehill.Hangul.Pages.csproj" />
   </ItemGroup>
 </Project>

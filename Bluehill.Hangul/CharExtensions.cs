@@ -4,7 +4,7 @@
 /// <see cref="char"/> 확장 메서드 모음
 /// </summary>
 public static class CharExtensions {
-    private static readonly Dictionary<char, char> ipfCompTable = new() {
+    private static readonly Dictionary<char, char> IpfCompTable = new() {
         ['ᄀ'] = 'ㄱ',
         ['ᄁ'] = 'ㄲ',
         ['ᄂ'] = 'ㄴ',
@@ -165,6 +165,6 @@ public static class CharExtensions {
             throw new ArgumentException("문자가 한글 첫가끝 자모가 아님", nameof(ipfJamo));
         }
 
-        return ipfCompTable[ipfJamo];
+        return IpfCompTable[ipfJamo];
     }
 }

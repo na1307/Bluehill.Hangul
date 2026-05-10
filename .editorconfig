@@ -1,7 +1,6 @@
 root = true
 
-# C# 파일
-[*.cs]
+[*.{cs,c++,cc,cpp,cppm,cxx,h,h++,hh,hpp,hxx,inl,ipp,ixx,tlh,tli,xaml,razor}]
 
 #### Bluehill's config ####
 
@@ -747,9 +746,6 @@ dotnet_diagnostic.ca1505.severity = suggestion
 # Avoid excessive class coupling
 dotnet_diagnostic.ca1506.severity = suggestion
 
-# Consider making public types internal
-dotnet_diagnostic.ca1515.severity = suggestion
-
 ### SYSLIB ###
 
 ## Silents ##
@@ -1339,6 +1335,9 @@ dotnet_diagnostic.sa1208.severity = none
 # Element should begin with upper-case letter
 dotnet_diagnostic.sa1300.severity = none
 
+# FieldNamesMustNotContainUnderscore
+dotnet_diagnostic.sa1310.severity = none
+
 # Access modifier should be declared
 dotnet_diagnostic.sa1400.severity = none
 
@@ -1609,7 +1608,6 @@ dotnet_naming_style.begins_with_i.required_suffix =
 dotnet_naming_style.begins_with_i.word_separator = 
 dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
-[*.{cs,c++,cc,cpp,cppm,cxx,h,h++,hh,hpp,hxx,inl,ipp,ixx,tlh,tli}]
 # ReSharper properties
 resharper_accessor_owner_body = expression_body
 resharper_add_imports_to_deepest_scope = false

@@ -1,16 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Bluehill.MSBuild.Sdk" />
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\bluehill.snk</AssemblyOriginatorKeyFile>
     <IsPackable>false</IsPackable>
-    <NoWarn>$(NoWarn);CA1707</NoWarn>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
+    <NoWarn>$(NoWarn);CA1707;SA1600</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Using Include="Xunit" />
     <Using Include="Bluehill.Hangul.HangulConstants" Static="true" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bluehill.Hangul\Bluehill.Hangul.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
@@ -19,8 +22,5 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="xunit.v3" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bluehill.Hangul\Bluehill.Hangul.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Sdk Name="Bluehill.MSBuild.Sdk" />
   <PropertyGroup>
     <TargetFrameworks>net20;net35;netstandard2.0;net8.0</TargetFrameworks>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>

@@ -2,13 +2,18 @@
 namespace Bluehill.Hangul.Tests;
 
 public sealed class HangulSyllableTest {
-    private static readonly HangulSyllable gaChar = new('가');
-    private static readonly HangulSyllable hitChar = new('힣');
+    private static readonly HangulSyllable GaChar = new('가');
+    private static readonly HangulSyllable HitChar = new('힣');
 
     [Fact]
     public void ConstructorTest1() {
-        _ = new HangulSyllable() { Value = '갈' };
-        Assert.Throws<ArgumentException>("value", () => new HangulSyllable() { Value = 'e' });
+        _ = new HangulSyllable {
+            Value = '갈'
+        };
+
+        Assert.Throws<ArgumentException>("value", () => new HangulSyllable {
+            Value = 'e'
+        });
     }
 
     [Fact]
@@ -41,18 +46,24 @@ public sealed class HangulSyllableTest {
     [Fact]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "<보류 중>")]
     public void ValueTest1() {
-        _ = new HangulSyllable() { Value = gaChar };
+        _ = new HangulSyllable {
+            Value = GaChar
+        };
     }
 
     [Fact]
     public void ValueTest2() {
-        Assert.Throws<ArgumentException>(() => new HangulSyllable() { Value = 'c' });
+        Assert.Throws<ArgumentException>(() => new HangulSyllable {
+            Value = 'c'
+        });
     }
 
     [Fact]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "<보류 중>")]
     public void ValueTest3() {
-        _ = new HangulSyllable() { Value = gaChar }.Value;
+        _ = new HangulSyllable {
+            Value = GaChar
+        }.Value;
     }
 
     [Fact]
@@ -87,55 +98,55 @@ public sealed class HangulSyllableTest {
     [Fact]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S2699:Tests should include assertions", Justification = "Not Needed")]
     public void ImplicitOperatorTest() {
-        _ = (char)gaChar;
+        _ = (char)GaChar;
     }
 
     [Fact]
     public void EqualityOperatorTest() {
-        Assert.True(gaChar == HangulSyllable.MinValue);
-        Assert.False(gaChar == HangulSyllable.MaxValue);
-        Assert.False(hitChar == HangulSyllable.MinValue);
-        Assert.True(hitChar == HangulSyllable.MaxValue);
+        Assert.True(GaChar == HangulSyllable.MinValue);
+        Assert.False(GaChar == HangulSyllable.MaxValue);
+        Assert.False(HitChar == HangulSyllable.MinValue);
+        Assert.True(HitChar == HangulSyllable.MaxValue);
     }
 
     [Fact]
     public void InequalityOperatorTest() {
-        Assert.False(gaChar != HangulSyllable.MinValue);
-        Assert.True(gaChar != HangulSyllable.MaxValue);
-        Assert.True(hitChar != HangulSyllable.MinValue);
-        Assert.False(hitChar != HangulSyllable.MaxValue);
+        Assert.False(GaChar != HangulSyllable.MinValue);
+        Assert.True(GaChar != HangulSyllable.MaxValue);
+        Assert.True(HitChar != HangulSyllable.MinValue);
+        Assert.False(HitChar != HangulSyllable.MaxValue);
     }
 
     [Fact]
     public void LessThanOperatorTest() {
-        Assert.False(gaChar < HangulSyllable.MinValue);
-        Assert.True(gaChar < HangulSyllable.MaxValue);
-        Assert.False(hitChar < HangulSyllable.MinValue);
-        Assert.False(hitChar < HangulSyllable.MaxValue);
+        Assert.False(GaChar < HangulSyllable.MinValue);
+        Assert.True(GaChar < HangulSyllable.MaxValue);
+        Assert.False(HitChar < HangulSyllable.MinValue);
+        Assert.False(HitChar < HangulSyllable.MaxValue);
     }
 
     [Fact]
     public void LessThanOrEqualOperatorTest() {
-        Assert.True(gaChar <= HangulSyllable.MinValue);
-        Assert.True(gaChar <= HangulSyllable.MaxValue);
-        Assert.False(hitChar <= HangulSyllable.MinValue);
-        Assert.True(hitChar <= HangulSyllable.MaxValue);
+        Assert.True(GaChar <= HangulSyllable.MinValue);
+        Assert.True(GaChar <= HangulSyllable.MaxValue);
+        Assert.False(HitChar <= HangulSyllable.MinValue);
+        Assert.True(HitChar <= HangulSyllable.MaxValue);
     }
 
     [Fact]
     public void GreaterThanOperatorTest() {
-        Assert.False(gaChar > HangulSyllable.MinValue);
-        Assert.False(gaChar > HangulSyllable.MaxValue);
-        Assert.True(hitChar > HangulSyllable.MinValue);
-        Assert.False(hitChar > HangulSyllable.MaxValue);
+        Assert.False(GaChar > HangulSyllable.MinValue);
+        Assert.False(GaChar > HangulSyllable.MaxValue);
+        Assert.True(HitChar > HangulSyllable.MinValue);
+        Assert.False(HitChar > HangulSyllable.MaxValue);
     }
 
     [Fact]
     public void GreaterThanOrEqualOperatorTest() {
-        Assert.True(gaChar >= HangulSyllable.MinValue);
-        Assert.False(gaChar >= HangulSyllable.MaxValue);
-        Assert.True(hitChar >= HangulSyllable.MinValue);
-        Assert.True(hitChar >= HangulSyllable.MaxValue);
+        Assert.True(GaChar >= HangulSyllable.MinValue);
+        Assert.False(GaChar >= HangulSyllable.MaxValue);
+        Assert.True(HitChar >= HangulSyllable.MinValue);
+        Assert.True(HitChar >= HangulSyllable.MaxValue);
     }
 
     [Fact]
@@ -145,26 +156,26 @@ public sealed class HangulSyllableTest {
 
     [Fact]
     public void EqualsTest1() {
-        Assert.True(gaChar.Equals(HangulSyllable.MinValue));
-        Assert.False(gaChar.Equals(HangulSyllable.MaxValue));
+        Assert.True(GaChar.Equals(HangulSyllable.MinValue));
+        Assert.False(GaChar.Equals(HangulSyllable.MaxValue));
     }
 
     [Fact]
     public void EqualsTest2() {
-        Assert.True(gaChar.Equals((object)HangulSyllable.MinValue));
-        Assert.False(gaChar.Equals((object)HangulSyllable.MaxValue));
-        Assert.False(gaChar.Equals(HangulSyllable.MinValue.Value));
+        Assert.True(GaChar.Equals((object)HangulSyllable.MinValue));
+        Assert.False(GaChar.Equals((object)HangulSyllable.MaxValue));
+        Assert.False(GaChar.Equals(HangulSyllable.MinValue.Value));
     }
 
     [Fact]
     public void GetHashCodeTest() {
-        Assert.Equal(HangulSyllable.MinValue.GetHashCode(), gaChar.GetHashCode());
-        Assert.Equal(gaChar.Value.GetHashCode(), gaChar.GetHashCode());
+        Assert.Equal(HangulSyllable.MinValue.GetHashCode(), GaChar.GetHashCode());
+        Assert.Equal(GaChar.Value.GetHashCode(), GaChar.GetHashCode());
     }
 
     [Fact]
     public void DeconstructTest() {
-        var (choseong, jungseong, jongseong) = hitChar;
+        var (choseong, jungseong, jongseong) = HitChar;
 
         Assert.Equal(Choseong.Hieut, choseong);
         Assert.Equal(Jungseong.I, jungseong);

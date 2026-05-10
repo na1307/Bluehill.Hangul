@@ -1,6 +1,9 @@
-﻿namespace Bluehill.Hangul.Pages.Tests;
+﻿using System.Diagnostics.CodeAnalysis;
 
-public sealed class TryJosaTest : TestContext {
+namespace Bluehill.Hangul.Pages.Tests;
+
+[SuppressMessage("Naming", "CA1707:식별자에는 밑줄을 사용할 수 없습니다.", Justification = "<보류 중>")]
+public sealed class TryJosaTest : BunitContext {
     public TryJosaTest() {
         Services.AddLocalization();
     }
@@ -10,49 +13,49 @@ public sealed class TryJosaTest : TestContext {
         var localizer = Services.GetService<IStringLocalizer<TryJosa>>()!;
 
         // Act
-        var cut = RenderComponent<TryJosa>();
+        var cut = Render<TryJosa>();
 
         // Assert
         cut.Find("table#results").MarkupMatches($"""
-            <table id="results" class="table">
-              <thead>
-                <tr>
-                  <th>{localizer.GetString("Method")}</th>
-                  <th>{localizer.GetString("Result")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>EunNeun</td>
-                  <td>{HangulConstants.Eun_Neun}</td>
-                </tr>
-                <tr>
-                  <td>IGa</td>
-                  <td>{HangulConstants.I_Ga}</td>
-                </tr>
-                <tr>
-                  <td>I</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>EulReul</td>
-                  <td>{HangulConstants.Eul_Reul}</td>
-                </tr>
-                <tr>
-                  <td>GwaWa</td>
-                  <td>{HangulConstants.Gwa_Wa}</td>
-                </tr>
-                <tr>
-                  <td>AYa</td>
-                  <td>{HangulConstants.A_Ya}</td>
-                </tr>
-                <tr>
-                  <td>EuRo</td>
-                  <td>{HangulConstants.Eu_Ro}</td>
-                </tr>
-              </tbody>
-            </table>
-            """);
+                                                 <table id="results" class="table">
+                                                   <thead>
+                                                     <tr>
+                                                       <th>{localizer.GetString("Method")}</th>
+                                                       <th>{localizer.GetString("Result")}</th>
+                                                     </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                     <tr>
+                                                       <td>EunNeun</td>
+                                                       <td>{HangulConstants.Eun_Neun}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>IGa</td>
+                                                       <td>{HangulConstants.I_Ga}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>I</td>
+                                                       <td></td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>EulReul</td>
+                                                       <td>{HangulConstants.Eul_Reul}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>GwaWa</td>
+                                                       <td>{HangulConstants.Gwa_Wa}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>AYa</td>
+                                                       <td>{HangulConstants.A_Ya}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>EuRo</td>
+                                                       <td>{HangulConstants.Eu_Ro}</td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                                 """);
     }
 
     [Theory]
@@ -65,50 +68,50 @@ public sealed class TryJosaTest : TestContext {
         var localizer = Services.GetService<IStringLocalizer<TryJosa>>()!;
 
         // Act
-        var cut = RenderComponent<TryJosa>();
+        var cut = Render<TryJosa>();
 
         cut.Find("input#input").Change(input);
 
         // Assert
         cut.Find("table#results").MarkupMatches($"""
-            <table id="results" class="table">
-              <thead>
-                <tr>
-                  <th>{localizer.GetString("Method")}</th>
-                  <th>{localizer.GetString("Result")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>EunNeun</td>
-                  <td>{input.EunNeun()}</td>
-                </tr>
-                <tr>
-                  <td>IGa</td>
-                  <td>{input.IGa()}</td>
-                </tr>
-                <tr>
-                  <td>I</td>
-                  <td>{input.I()}</td>
-                </tr>
-                <tr>
-                  <td>EulReul</td>
-                  <td>{input.EulReul()}</td>
-                </tr>
-                <tr>
-                  <td>GwaWa</td>
-                  <td>{input.GwaWa()}</td>
-                </tr>
-                <tr>
-                  <td>AYa</td>
-                  <td>{input.AYa()}</td>
-                </tr>
-                <tr>
-                  <td>EuRo</td>
-                  <td>{input.EuRo()}</td>
-                </tr>
-              </tbody>
-            </table>
-            """);
+                                                 <table id="results" class="table">
+                                                   <thead>
+                                                     <tr>
+                                                       <th>{localizer.GetString("Method")}</th>
+                                                       <th>{localizer.GetString("Result")}</th>
+                                                     </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                     <tr>
+                                                       <td>EunNeun</td>
+                                                       <td>{input.EunNeun()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>IGa</td>
+                                                       <td>{input.IGa()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>I</td>
+                                                       <td>{input.I()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>EulReul</td>
+                                                       <td>{input.EulReul()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>GwaWa</td>
+                                                       <td>{input.GwaWa()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>AYa</td>
+                                                       <td>{input.AYa()}</td>
+                                                     </tr>
+                                                     <tr>
+                                                       <td>EuRo</td>
+                                                       <td>{input.EuRo()}</td>
+                                                     </tr>
+                                                   </tbody>
+                                                 </table>
+                                                 """);
     }
 }

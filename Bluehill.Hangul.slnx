@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/솔루션 항목/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Bluehill.Hangul.Pages.Tests/Bluehill.Hangul.Pages.Tests.csproj" />
+  <Project Path="Bluehill.Hangul.Pages/Bluehill.Hangul.Pages.csproj" />
+  <Project Path="Bluehill.Hangul.Tests/Bluehill.Hangul.Tests.csproj" />
+  <Project Path="Bluehill.Hangul/Bluehill.Hangul.csproj" />
+</Solution>

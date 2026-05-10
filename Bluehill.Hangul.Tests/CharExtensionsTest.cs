@@ -1,266 +1,266 @@
 ﻿namespace Bluehill.Hangul.Tests;
 
 public sealed class CharExtensionsTest {
-    private const char han = '한';
-    private const char mul = '물';
-    private const char sae = '새';
-    private const char giyeok = 'ㄱ';
-    private const char ae = 'ㅐ';
-    private const char ipfChosesongNieun = 'ᄂ';
-    private const char ipfJungseongO = 'ᅩ';
-    private const char ipfJongseongRieul = 'ᆯ';
-    private const char s = 's';
-    private const char one = '1';
-    private const char dollarSign = '$';
+    private const char Han = '한';
+    private const char Mul = '물';
+    private const char Sae = '새';
+    private const char Giyeok = 'ㄱ';
+    private const char Ae = 'ㅐ';
+    private const char IpfChosesongNieun = 'ᄂ';
+    private const char IpfJungseongO = 'ᅩ';
+    private const char IpfJongseongRieul = 'ᆯ';
+    private const char S = 's';
+    private const char One = '1';
+    private const char DollarSign = '$';
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
     public void IsHangul_ReturnTrue(char input) {
         Assert.True(input.IsHangul());
     }
 
     [Theory]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangul_ReturnFalse(char input) {
         Assert.False(input.IsHangul());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
     public void IsHangulSyllable_ReturnTrue(char input) {
         Assert.True(input.IsHangulSyllable());
     }
 
     [Theory]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulSyllable_ReturnFalse(char input) {
         Assert.False(input.IsHangulSyllable());
     }
 
     [Theory]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
     public void IsHangulJamo_ReturnTrue(char input) {
         Assert.True(input.IsHangulJamo());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulJamo_ReturnFalse(char input) {
         Assert.False(input.IsHangulJamo());
     }
 
     [Theory]
-    [InlineData(giyeok)]
+    [InlineData(Giyeok)]
     public void IsHangulConsonant_ReturnTrue(char input) {
         Assert.True(input.IsHangulConsonant());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulConsonantTest(char input) {
         Assert.False(input.IsHangulConsonant());
     }
 
     [Theory]
-    [InlineData(ae)]
+    [InlineData(Ae)]
     public void IsHangulVowel_ReturnTrue(char input) {
         Assert.True(input.IsHangulVowel());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulVowel_ReturnFalse(char input) {
         Assert.False(input.IsHangulVowel());
     }
 
     [Theory]
-    [InlineData(ipfChosesongNieun)]
+    [InlineData(IpfChosesongNieun)]
     public void IsHangulIPFChoseong_ReturnTrue(char input) {
         Assert.True(input.IsHangulIPFChoseong());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulIPFChoseong_ReturnFalse(char input) {
         Assert.False(input.IsHangulIPFChoseong());
     }
 
     [Theory]
-    [InlineData(ipfJungseongO)]
+    [InlineData(IpfJungseongO)]
     public void IsHangulIPFJungseong_ReturnTrue(char input) {
         Assert.True(input.IsHangulIPFJungseong());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulIPFJungseong_ReturnFalse(char input) {
         Assert.False(input.IsHangulIPFJungseong());
     }
 
     [Theory]
-    [InlineData(ipfJongseongRieul)]
+    [InlineData(IpfJongseongRieul)]
     public void IsHangulIPFJongseong_ReturnTrue(char input) {
         Assert.True(input.IsHangulIPFJongseong());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void IsHangulIPFJongseong_ReturnFalse(char input) {
         Assert.False(input.IsHangulIPFJongseong());
     }
 
     [Theory]
-    [InlineData(han, Choseong.Hieut)]
-    [InlineData(mul, Choseong.Mieum)]
-    [InlineData(sae, Choseong.Siot)]
+    [InlineData(Han, Choseong.Hieut)]
+    [InlineData(Mul, Choseong.Mieum)]
+    [InlineData(Sae, Choseong.Siot)]
     public void Choseong_Equal(char input, Choseong expected) {
         Assert.Equal(expected, input.Choseong());
     }
 
     [Theory]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void Choseong_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("c", () => input.Choseong());
     }
 
     [Theory]
-    [InlineData(han, Jungseong.A)]
-    [InlineData(mul, Jungseong.U)]
-    [InlineData(sae, Jungseong.Ae)]
+    [InlineData(Han, Jungseong.A)]
+    [InlineData(Mul, Jungseong.U)]
+    [InlineData(Sae, Jungseong.Ae)]
     public void Jungseong_Equal(char input, Jungseong expected) {
         Assert.Equal(expected, input.Jungseong());
     }
 
     [Theory]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void Jungseong_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("c", () => input.Jungseong());
     }
 
     [Theory]
-    [InlineData(han, Jongseong.Nieun)]
-    [InlineData(mul, Jongseong.Rieul)]
-    [InlineData(sae, Jongseong.None)]
+    [InlineData(Han, Jongseong.Nieun)]
+    [InlineData(Mul, Jongseong.Rieul)]
+    [InlineData(Sae, Jongseong.None)]
     public void Jongseong_Equal(char input, Jongseong expected) {
         Assert.Equal(expected, input.Jongseong());
     }
 
     [Theory]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(ipfChosesongNieun)]
-    [InlineData(ipfJungseongO)]
-    [InlineData(ipfJongseongRieul)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(IpfChosesongNieun)]
+    [InlineData(IpfJungseongO)]
+    [InlineData(IpfJongseongRieul)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void Jongseong_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("c", () => input.Jungseong());
     }
 
     [Theory]
-    [InlineData(ipfChosesongNieun, 'ㄴ')]
-    [InlineData(ipfJungseongO, 'ㅗ')]
-    [InlineData(ipfJongseongRieul, 'ㄹ')]
+    [InlineData(IpfChosesongNieun, 'ㄴ')]
+    [InlineData(IpfJungseongO, 'ㅗ')]
+    [InlineData(IpfJongseongRieul, 'ㄹ')]
     public void ToCompatibilityJamo_Equal(char input, char expected) {
         Assert.Equal(expected, input.ToCompatibilityJamo());
     }
 
     [Theory]
-    [InlineData(han)]
-    [InlineData(mul)]
-    [InlineData(sae)]
-    [InlineData(giyeok)]
-    [InlineData(ae)]
-    [InlineData(s)]
-    [InlineData(one)]
-    [InlineData(dollarSign)]
+    [InlineData(Han)]
+    [InlineData(Mul)]
+    [InlineData(Sae)]
+    [InlineData(Giyeok)]
+    [InlineData(Ae)]
+    [InlineData(S)]
+    [InlineData(One)]
+    [InlineData(DollarSign)]
     public void ToCompatibilityJamo_ThrowsArgumentException(char input) {
         Assert.Throws<ArgumentException>("ipfJamo", () => input.ToCompatibilityJamo());
     }

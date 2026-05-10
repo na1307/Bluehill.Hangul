@@ -1,4 +1,5 @@
 ﻿#if !NET7_0_OR_GREATER
+#pragma warning disable
 namespace System.Runtime.CompilerServices;
 
 [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]

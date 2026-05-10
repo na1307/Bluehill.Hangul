@@ -8,9 +8,9 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
 #if NET7_0_OR_GREATER
     , System.Numerics.IComparisonOperators<HangulSyllable, HangulSyllable, bool>, System.Numerics.IMinMaxValue<HangulSyllable>
 #endif
-    {
-    private const string invalidMessage = nameof(HangulSyllable) + " 인스턴스를 만드려면 항상 생성자를 사용해야 합니다.";
-    private readonly char _Value;
+{
+    private const string InvalidMessage = nameof(HangulSyllable) + " 인스턴스를 만드려면 항상 생성자를 사용해야 합니다.";
+    private readonly char value;
 
     /// <summary>
     /// 지정한 한글 음절 문자를 사용하여 새 <see cref="HangulSyllable"/> 인스턴스를 만듦
@@ -23,7 +23,7 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
             throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(c));
         }
 
-        _Value = c;
+        value = c;
     }
 
     /// <summary>
@@ -33,7 +33,8 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     /// <param name="jungseong">중성 값</param>
     /// <param name="jongseong">종성 값</param>
     [SetsRequiredMembers]
-    public HangulSyllable(Choseong choseong, Jungseong jungseong, Jongseong jongseong) => _Value = getChar((byte)choseong, (byte)jungseong, (byte)jongseong);
+    public HangulSyllable(Choseong choseong, Jungseong jungseong, Jongseong jongseong)
+        => value = GetChar((byte)choseong, (byte)jungseong, (byte)jongseong);
 
     /// <summary>
     /// 지정한 초성, 중성, 종성 값을 사용하여 새 <see cref="HangulSyllable"/> 인스턴스를 만듦
@@ -56,7 +57,7 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
             throw new ArgumentOutOfRangeException(nameof(jongseong), jongseong, "종성 값은 27 이하여야 합니다.");
         }
 
-        _Value = getChar(choseong, jungseong, jongseong);
+        value = GetChar(choseong, jungseong, jongseong);
     }
 
     /// <summary>
@@ -80,29 +81,9 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
             throw new ArgumentException("종성 낱자가 아닙니다.", nameof(jongseong));
         }
 
-        _Value = getChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
+        value = GetChar(getByte(Choseongs, choseong), getByte(Jungseongs, jungseong), getByte(Jongseongs, jongseong));
 
         static byte getByte(char[] array, char value) => (byte)Array.IndexOf(array, value);
-    }
-
-    /// <summary>
-    /// 실제 <see cref="char"/>
-    /// </summary>
-    public required char Value {
-        get {
-            if (!IsValid) {
-                throw new InvalidOperationException(invalidMessage);
-            }
-
-            return _Value;
-        }
-        init {
-            if (!value.IsHangulSyllable()) {
-                throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
-            }
-
-            _Value = value;
-        }
     }
 
     /// <summary>
@@ -116,38 +97,44 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     public static HangulSyllable MaxValue { get; } = new(LastSyllable);
 
     /// <summary>
-    /// <paramref name="value"/>를 <see cref="HangulSyllable"/>로 변환
+    /// 실제 <see cref="char"/>
     /// </summary>
-    /// <param name="value">한글 문자</param>
-    /// <returns><see cref="HangulSyllable"/></returns>
-    public static HangulSyllable FromChar(char value) => new(value);
+    public required char Value {
+        get {
+            if (!IsValid) {
+                throw new InvalidOperationException(InvalidMessage);
+            }
 
-    /// <summary>
-    /// <paramref name="syllable"/>을 <see cref="char"/>로 변환
-    /// </summary>
-    /// <param name="syllable">한글 음절 문자</param>
-    /// <returns><see cref="char"/></returns>
-    public static char ToChar(HangulSyllable syllable) => syllable.Value;
+            return value;
+        }
+        init {
+            if (!value.IsHangulSyllable()) {
+                throw new ArgumentException("문자가 한글 음절 문자가 아닙니다.", nameof(value));
+            }
+
+            this.value = value;
+        }
+    }
 
     /// <summary>
     /// 이 한글 음절의 초성에 대한 <see cref="Hangul.Choseong"/> 값
     /// </summary>
-    public Choseong Choseong => IsValid ? (Choseong)((_Value - FirstSyllable) / 28 / 21) : throw new InvalidOperationException(invalidMessage);
+    public Choseong Choseong => IsValid ? (Choseong)((value - FirstSyllable) / 28 / 21) : throw new InvalidOperationException(InvalidMessage);
 
     /// <summary>
     /// 이 한글 음절의 중성에 대한 <see cref="Hangul.Jungseong"/> 값
     /// </summary>
-    public Jungseong Jungseong => IsValid ? (Jungseong)((_Value - FirstSyllable) / 28 % 21) : throw new InvalidOperationException(invalidMessage);
+    public Jungseong Jungseong => IsValid ? (Jungseong)((value - FirstSyllable) / 28 % 21) : throw new InvalidOperationException(InvalidMessage);
 
     /// <summary>
     /// 이 한글 음절의 종성에 대한 <see cref="Hangul.Jongseong"/> 값
     /// </summary>
-    public Jongseong Jongseong => IsValid ? (Jongseong)((_Value - FirstSyllable) % 28) : throw new InvalidOperationException(invalidMessage);
+    public Jongseong Jongseong => IsValid ? (Jongseong)((value - FirstSyllable) % 28) : throw new InvalidOperationException(InvalidMessage);
 
     /// <summary>
     /// 이 <see cref="HangulSyllable"/>가 올바른지 여부
     /// </summary>
-    public bool IsValid => _Value.IsHangulSyllable();
+    public bool IsValid => value.IsHangulSyllable();
 
     /// <summary>
     /// 이 한글 음절 문자를 <see cref="HangulSyllable"/>로 변환
@@ -211,6 +198,20 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
     public static bool operator >=(HangulSyllable left, HangulSyllable right) => left.CompareTo(right) >= 0;
 
     /// <summary>
+    /// <paramref name="value"/>를 <see cref="HangulSyllable"/>로 변환
+    /// </summary>
+    /// <param name="value">한글 문자</param>
+    /// <returns><see cref="HangulSyllable"/></returns>
+    public static HangulSyllable FromChar(char value) => new(value);
+
+    /// <summary>
+    /// <paramref name="syllable"/>을 <see cref="char"/>로 변환
+    /// </summary>
+    /// <param name="syllable">한글 음절 문자</param>
+    /// <returns><see cref="char"/></returns>
+    public static char ToChar(HangulSyllable syllable) => syllable.Value;
+
+    /// <summary>
     /// 이 한글 음절을 문자열 표현으로 변환
     /// </summary>
     /// <returns>이 한글 음절의 문자열 표현</returns>
@@ -240,5 +241,6 @@ public readonly struct HangulSyllable : IEquatable<HangulSyllable>, IComparable<
         jongseong = Jongseong;
     }
 
-    private static char getChar(byte choseong, byte jungseong, byte jongseong) => (char)(FirstSyllable + (((choseong * 21) + jungseong) * 28) + jongseong);
+    private static char GetChar(byte choseong, byte jungseong, byte jongseong)
+        => (char)(FirstSyllable + (((choseong * 21) + jungseong) * 28) + jongseong);
 }
